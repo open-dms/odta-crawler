@@ -1,0 +1,1669 @@
+{
+  "metaData": {
+    "dsCount": {
+      "https://semantify.it/ds/sloejGAwT": {
+        "count": "44326",
+        "name": {
+          "de": "Sehenswürdigkeit"
+        }
+      }
+    },
+    "page-size": 10,
+    "sortSeed": "8ce522a2-3314-471a-8871-8cc2a3a51f1e",
+    "total": 44326,
+    "current-page": 1
+  },
+  "data": [
+    {
+      "@id": "https://thuecat.org/resources/dms_6219787",
+      "@type": "https://odta.io/voc/PointOfInterest",
+      "https://schema.org/additionalType": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://schema.org/Thing"
+        },
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://schema.org/CreativeWork"
+        },
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://schema.org/MediaObject"
+        },
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://schema.org/ImageObject"
+        },
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://purl.org/dc/dcmitype/Image"
+        }
+      ],
+      "https://schema.org/identifier": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://thuecat.org/resources/dms_6219787"
+      },
+      "https://schema.org/mainEntityOfPage": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://cms.thuecat.org/o/adaptive-media/image/6219787/Preview-1280x0/image"
+      },
+      "https://schema.org/name": "Skiarena Silbersattel-Steinach_2.jpg",
+      "https://schema.org/sameAs": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://wbk.thuecat.org"
+      },
+      "https://schema.org/sdLicense": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://cms.thuecat.org/datenquelle-thuecathttps:/cms.thuecat.org/datenquelle-thuecat"
+      },
+      "https://schema.org/url": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://cms.thuecat.org/o/adaptive-media/image/6219787/Preview-1280x0/image"
+      },
+      "https://vocab.sti2.at/ds/compliesWith": {
+        "@id": "https://semantify.it/ds/sloejGAwT"
+      }
+    },
+    {
+      "@id": "https://data.bayerncloud.digital/api/v4/universal/25bdb10b-f69f-4e10-8476-08892f43097a",
+      "@type": [
+        "https://schema.org/Place",
+        "https://schema.org/TouristAttraction",
+        "https://odta.io/voc/PointOfInterest"
+      ],
+      "https://schema.org/address": {
+        "@id": "https://data.bayerncloud.digital/api/v4/universal/25bdb10b-f69f-4e10-8476-80c4b74790e5",
+        "@type": "https://schema.org/PostalAddress",
+        "https://schema.org/addressLocality": "München",
+        "https://schema.org/postalCode": "81671",
+        "https://schema.org/streetAddress": "Atelierstraße 11",
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/NP8df6sKy"
+        }
+      },
+      "https://schema.org/description": {
+        "@language": "de",
+        "@value": "With the Hi-Sky Ferris wheel, up to 1,700 visitors can be transported within one hour, each with room for 16 people per gondola. <p>A 30-minute ride at a rotational speed of less than 0.5 km/h gives you the opportunity to experience Munich from above and discover famous sights such as the Frauenkirche, the Allianz Arena, the Olympic site and much more up to the Alpine chain.</p> <p>It also offers an optimal view of the factory quarter, which combines under the motto 'compact, urban, green' all uses of daily life in a very confined space.</p> <p>In addition to a classic hi-sky ride, there are also limited special gondolas with various themes such as bavarian-style gondolas with a Weisswurst breakfast.</p> <p>You want to know more about the Hi-Sky Ferris Wheel? Then click <a href=\"https://hi-sky.de/\">here</a>.</p>"
+      },
+      "https://schema.org/geo": {
+        "@id": "https://data.bayerncloud.digital/api/v4/universal/25bdb10b-f69f-4e10-8476-e4485ba0e956",
+        "@type": "https://schema.org/GeoCoordinates",
+        "https://schema.org/latitude": {
+          "@type": "http://www.w3.org/2001/XMLSchema#double",
+          "@value": "48.124867"
+        },
+        "https://schema.org/longitude": {
+          "@type": "http://www.w3.org/2001/XMLSchema#double",
+          "@value": "11.606942"
+        },
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/2NErTNGpd"
+        }
+      },
+      "https://schema.org/hasMap": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://w3w.co/ausz%C3%BCgen.restliche.anh%C3%A4ufung"
+      },
+      "https://schema.org/keywords": [
+        {
+          "@language": "de",
+          "@value": "Bayern"
+        },
+        {
+          "@language": "de",
+          "@value": "Families"
+        },
+        {
+          "@language": "de",
+          "@value": "POI"
+        },
+        {
+          "@language": "en",
+          "@value": "Bayern"
+        },
+        {
+          "@language": "de",
+          "@value": "CC BY 4.0"
+        },
+        {
+          "@language": "de",
+          "@value": "Landeshauptstadt München"
+        },
+        {
+          "@language": "de",
+          "@value": "München"
+        },
+        {
+          "@language": "de",
+          "@value": "Aussichtsplattformen"
+        },
+        {
+          "@language": "de",
+          "@value": "Viewpoint"
+        }
+      ],
+      "https://schema.org/name": {
+        "@language": "de",
+        "@value": "Hi-Sky Ferris wheel"
+      },
+      "https://schema.org/sdLicense": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "https://schema.org/sdPublisher": {
+        "@id": "https://data.bayerncloud.digital/api/v4/universal/9c1d7cdd-edca-45a9-9bae-72d50f80a2f7",
+        "@type": "https://schema.org/Organization",
+        "https://schema.org/name": {
+          "@language": "de",
+          "@value": "Fakultät für Tourismus - Digital Marketing & Management - Hochschule München"
+        },
+        "https://schema.org/url": {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "https://munichbynatives.de/"
+        },
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/dA_C4oQ0p"
+        }
+      },
+      "https://schema.org/telephone": "+49 173 677 44 35",
+      "https://vocab.sti2.at/ds/compliesWith": {
+        "@id": "https://semantify.it/ds/sloejGAwT"
+      }
+    },
+    {
+      "@id": "https://data.bayerncloud.digital/api/v4/universal/eabeaa61-e09a-4c30-aa5f-b3f4cffba881",
+      "@type": [
+        "https://schema.org/Place",
+        "https://schema.org/TouristAttraction",
+        "https://odta.io/voc/PointOfInterest"
+      ],
+      "https://schema.org/address": {
+        "@id": "https://data.bayerncloud.digital/api/v4/universal/eabeaa61-e09a-4c30-aa5f-3bb957ff311e",
+        "@type": "https://schema.org/PostalAddress",
+        "https://schema.org/addressLocality": "Eichendorf",
+        "https://schema.org/postalCode": "94428",
+        "https://schema.org/streetAddress": "Kröhstorf 142",
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/NP8df6sKy"
+        }
+      },
+      "https://schema.org/description": {
+        "@language": "de",
+        "@value": "Das Vilstaler Bauernmuseum im stattlichen Bräuhof des Dorfes Kröhstorf zeigt eine Sammlung zum bäuerlichen Wohnen und Arbeiten wie auch Werkzeuge und Produkte der im Vilstal beheimateten Handwerke."
+      },
+      "https://schema.org/geo": {
+        "@id": "https://data.bayerncloud.digital/api/v4/universal/eabeaa61-e09a-4c30-aa5f-5f35bb1848ad",
+        "@type": "https://schema.org/GeoCoordinates",
+        "https://schema.org/latitude": {
+          "@type": "http://www.w3.org/2001/XMLSchema#double",
+          "@value": "48.6149992719291"
+        },
+        "https://schema.org/longitude": {
+          "@type": "http://www.w3.org/2001/XMLSchema#double",
+          "@value": "12.9487077883798"
+        },
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/2NErTNGpd"
+        }
+      },
+      "https://schema.org/hasMap": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://w3w.co/zahnrad.k%C3%BCken.hellblau"
+      },
+      "https://schema.org/keywords": [
+        {
+          "@language": "de",
+          "@value": "Museum"
+        },
+        {
+          "@language": "de",
+          "@value": "POI"
+        },
+        {
+          "@language": "de",
+          "@value": "CC BY 4.0"
+        },
+        {
+          "@language": "de",
+          "@value": "Museen & Galerien"
+        },
+        {
+          "@language": "de",
+          "@value": "Bayerisches Golf- und Thermenland"
+        },
+        {
+          "@language": "de",
+          "@value": "Eichendorf"
+        }
+      ],
+      "https://schema.org/name": {
+        "@language": "de",
+        "@value": "Vilstaler Bauernmuseum"
+      },
+      "https://schema.org/openingHoursSpecification": {
+        "@id": "https://data.bayerncloud.digital/api/v4/universal/f2db326b-7576-4e47-a90b-5572ca5550a0",
+        "@type": [
+          "https://schema.org/Intangible",
+          "https://schema.org/StructuredValue",
+          "https://schema.org/OpeningHoursSpecification"
+        ],
+        "https://schema.org/description": "Nur nach Vereinbarung geöffnet",
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/rpOsHCyrE"
+        }
+      },
+      "https://schema.org/sdLicense": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "https://schema.org/sdPublisher": {
+        "@id": "https://data.bayerncloud.digital/api/v4/universal/7b576403-f195-4da8-84bc-882605e16a1a",
+        "@type": "https://schema.org/Organization",
+        "https://schema.org/name": {
+          "@language": "de",
+          "@value": "Landesstelle für die nichtstaatlichen Museen in Bayern"
+        },
+        "https://schema.org/url": {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "https://www.museen-in-bayern.de/"
+        },
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/dA_C4oQ0p"
+        }
+      },
+      "https://schema.org/telephone": "09952/477",
+      "https://schema.org/url": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "http://www.schullandheim-eichenberg.de/index.php/informationen/vilstaler-bauernmuseum"
+      },
+      "https://vocab.sti2.at/ds/compliesWith": {
+        "@id": "https://semantify.it/ds/sloejGAwT"
+      }
+    },
+    {
+      "@id": "http://onlim.com/entity/ee9ff0c3-410f-4ac8-9c26-c3b2ae88f310",
+      "@type": "https://odta.io/voc/PointOfInterest",
+      "https://schema.org/address": {
+        "@id": "http://onlim.com/entity/adb10d9b-224a-4ea7-9289-d14c504bcd51",
+        "@type": "https://schema.org/PostalAddress",
+        "https://schema.org/addressCountry": "Deutschland",
+        "https://schema.org/addressLocality": "Dinslaken",
+        "https://schema.org/postalCode": "46535",
+        "https://schema.org/streetAddress": "Duisburger Straße / Brückstraße",
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/NP8df6sKy"
+        }
+      },
+      "https://schema.org/description": [
+        {
+          "@language": "de",
+          "@value": "Zur Wöllepumpnachbarschaft gehörten 60 Häuser. Neben der Wasserversorgung diente die Pumpe der Löschwasserbeschaffung. Die Wöllepump soll Berichten zu Folge das beste Wasser im Stadtgebiet geführt haben.\nNach einer Überlieferung soll sich ein denkwürdiger Plausch an der Wöllepump zugetragen haben: Der Flirt einer jungen Frau mit einem russischen Soldaten habe während der Befreiungskriege 1813/14 die Stadt vor der Plünderung durch russische Soldaten bewahrt. Der Name der Frau geriet in Vergessenheit, heute ist sie als Pumpenmarie bekannt. Daher wird seit 1954 vom Heimatverein Dinslaken e.V. jedes Jahr eine junge Frau zur Pumpenmarie gewählt mit der Aufgabe, Stadt und Heimatverein nach außen würdig zu vertreten."
+        },
+        {
+          "@id": "http://onlim.com/entity/da6e35aa-33a8-4aeb-b49d-69806a6803e7",
+          "@type": "https://schema.org/CreativeWork",
+          "https://schema.org/text": {
+            "@language": "de",
+            "@value": "<p>Zur Wöllepumpnachbarschaft gehörten 60 Häuser. Neben der Wasserversorgung diente die Pumpe der Löschwasserbeschaffung. Die Wöllepump soll Berichten zu Folge das beste Wasser im Stadtgebiet geführt haben.</p>\n<p>Nach einer Überlieferung soll sich ein denkwürdiger Plausch an der Wöllepump zugetragen haben: Der Flirt einer jungen Frau mit einem russischen Soldaten habe während der Befreiungskriege 1813/14 die Stadt vor der Plünderung durch russische Soldaten bewahrt. Der Name der Frau geriet in Vergessenheit, heute ist sie als Pumpenmarie bekannt. Daher wird seit 1954 vom Heimatverein Dinslaken e.V. jedes Jahr eine junge Frau zur Pumpenmarie gewählt mit der Aufgabe, Stadt und Heimatverein nach außen würdig zu vertreten.</p>"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/Wf-IXZvIo#DhUeF"
+          }
+        }
+      ],
+      "https://schema.org/geo": {
+        "@id": "http://onlim.com/entity/c26363a6-ae9f-4223-94b8-2f0659bed481",
+        "@type": "https://schema.org/GeoCoordinates",
+        "https://schema.org/latitude": {
+          "@type": "http://www.w3.org/2001/XMLSchema#double",
+          "@value": "51.560327"
+        },
+        "https://schema.org/longitude": {
+          "@type": "http://www.w3.org/2001/XMLSchema#double",
+          "@value": "6.734088"
+        },
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/2NErTNGpd"
+        }
+      },
+      "https://schema.org/identifier": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://dztkg.destination.one/item/open-data-nrw-only/POI/p_100092659"
+      },
+      "https://schema.org/isAccessibleForFree": {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": "false"
+      },
+      "https://schema.org/keywords": [
+        {
+          "@language": "de",
+          "@value": "Denkmal"
+        },
+        {
+          "@language": "de",
+          "@value": "low_image_quality"
+        },
+        {
+          "@language": "de",
+          "@value": "robots_noindex"
+        },
+        {
+          "@language": "de",
+          "@value": "import_source_outdooractive"
+        },
+        {
+          "@language": "de",
+          "@value": "Organisation_Niederrhein_Tourismus_GmbH"
+        },
+        {
+          "@language": "de",
+          "@value": "Author_Gesa_Scholten"
+        },
+        {
+          "@language": "de",
+          "@value": "import_sourceid_30917320"
+        }
+      ],
+      "https://schema.org/name": {
+        "@language": "de",
+        "@value": "Wöllepump"
+      },
+      "https://schema.org/sdDatePublished": {
+        "@type": "http://www.w3.org/2001/XMLSchema#date",
+        "@value": "2023-08-18"
+      },
+      "https://schema.org/sdLicense": {
+        "@id": "http://onlim.com/entity/aa9ec1a4-85a7-41f0-a584-4af23e848308",
+        "@type": "https://schema.org/CreativeWork",
+        "https://schema.org/author": {
+          "@id": "http://onlim.com/entity/e1f57815-6f1e-481b-84fa-3774cd1be329",
+          "@type": "https://schema.org/Person",
+          "https://schema.org/name": "Gesa Scholten",
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/08qsF9fXz#wcYYa"
+          }
+        },
+        "https://schema.org/copyrightHolder": {
+          "@id": "http://onlim.com/entity/d4369615-68eb-4d0a-832c-58cdb7ffe4af",
+          "@type": "https://schema.org/Person",
+          "https://schema.org/name": "Gesa Scholten",
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/luBQ_A5Y-"
+          }
+        },
+        "https://schema.org/copyrightNotice": "Gesa Scholten",
+        "https://schema.org/license": {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "https://creativecommons.org/licenses/by-sa/4.0/deed.de"
+        },
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/08qsF9fXz"
+        }
+      },
+      "https://schema.org/sdPublisher": {
+        "@id": "http://onlim.com/entity/6825f3de-7cc7-4034-82fd-34d0135031ba",
+        "@type": "https://schema.org/Organization",
+        "https://schema.org/name": "Niederrhein Tourismus GmbH",
+        "https://schema.org/url": {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://niederrhein-tourismus.de/"
+        },
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/dA_C4oQ0p"
+        }
+      },
+      "https://vocab.sti2.at/ds/compliesWith": {
+        "@id": "https://semantify.it/ds/sloejGAwT"
+      }
+    },
+    {
+      "@id": "https://thuecat.org/resources/dms_7538993",
+      "@type": "https://odta.io/voc/PointOfInterest",
+      "https://schema.org/additionalType": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://schema.org/Thing"
+        },
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://schema.org/CreativeWork"
+        },
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://schema.org/MediaObject"
+        },
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://schema.org/ImageObject"
+        },
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://purl.org/dc/dcmitype/Image"
+        }
+      ],
+      "https://schema.org/identifier": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://thuecat.org/resources/dms_7538993"
+      },
+      "https://schema.org/mainEntityOfPage": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://cms.thuecat.org/o/adaptive-media/image/7538993/Preview-1280x0/image"
+      },
+      "https://schema.org/name": "Erfurt-Thueringenpark-Eingang.jpg",
+      "https://schema.org/sameAs": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://wbk.thuecat.org"
+      },
+      "https://schema.org/sdLicense": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://cms.thuecat.org/datenquelle-thuecathttps:/cms.thuecat.org/datenquelle-thuecat"
+      },
+      "https://schema.org/url": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://cms.thuecat.org/o/adaptive-media/image/7538993/Preview-1280x0/image"
+      },
+      "https://vocab.sti2.at/ds/compliesWith": {
+        "@id": "https://semantify.it/ds/sloejGAwT"
+      }
+    },
+    {
+      "@id": "http://onlim.com/entity/2a1ba704-3672-4115-880a-50f98629d7ae",
+      "@type": [
+        "https://schema.org/Store",
+        "https://odta.io/voc/PointOfInterest"
+      ],
+      "https://schema.org/address": {
+        "@id": "http://onlim.com/entity/2e5f021c-a40f-4431-a25a-5b30164134fc",
+        "@type": "https://schema.org/PostalAddress",
+        "https://schema.org/addressCountry": "Deutschland",
+        "https://schema.org/addressLocality": "Dedelow",
+        "https://schema.org/postalCode": "17291",
+        "https://schema.org/streetAddress": "Schlossweg 2",
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/NP8df6sKy"
+        }
+      },
+      "https://schema.org/description": [
+        {
+          "@language": "de",
+          "@value": "Familienbetrieb mit 1 Mitarbeiter, Gemischtbetrieb, Haupterwerb Milchvieh mit teilweise eigener Milchverarbeitung, Futteranbau, Getreide, Dauergrünland, Haltung der vom Aussterben bedrohten Rinderrasse ''Deutsches Schwarzbuntes Niederungsrind''.\nProdukte: Rohmilch, Rohmilchkäse, Hartkäse, Schnittkäse natur oder mit verschiedenen Kräutern, Frischkäse"
+        },
+        {
+          "@language": "en",
+          "@value": "Family-run mixed farming business with 1 staff member. The main source of income is dairy cattle and part of the milk is processed on site. Crop farming, grains, permanent grasslands, keeping of an endangered breed of cattle called Deutsches Schwarzbuntes Niederungsrind.\nProducts: Raw milk, raw milk cheese, hard cheese, sliced cheese as natural varieties and with various herbs, cream cheese"
+        },
+        {
+          "@id": "http://onlim.com/entity/7b0f6d47-b6f9-4d51-9999-862e862ce696",
+          "@type": "https://schema.org/CreativeWork",
+          "https://schema.org/text": [
+            {
+              "@language": "de",
+              "@value": "<div class=\"text\" xmlns=\"http://www.w3.org/1999/xhtml\"><div>Familienbetrieb mit 1 Mitarbeiter, Gemischtbetrieb, Haupterwerb Milchvieh mit teilweise eigener Milchverarbeitung, Futteranbau, Getreide, Dauergrünland, Haltung der vom Aussterben bedrohten Rinderrasse ''Deutsches Schwarzbuntes Niederungsrind''.<br />\nProdukte: Rohmilch, Rohmilchkäse, Hartkäse, Schnittkäse natur oder mit verschiedenen Kräutern, Frischkäse</div></div>"
+            },
+            {
+              "@language": "en",
+              "@value": "<div class=\"text\" xmlns=\"http://www.w3.org/1999/xhtml\">Family-run mixed farming business with 1 staff member. The main source of income is dairy cattle and part of the milk is processed on site. Crop farming, grains, permanent grasslands, keeping of an endangered breed of cattle called Deutsches Schwarzbuntes Niederungsrind.<br />\nProducts: Raw milk, raw milk cheese, hard cheese, sliced cheese as natural varieties and with various herbs, cream cheese</div>"
+            }
+          ],
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/Wf-IXZvIo#DhUeF"
+          }
+        }
+      ],
+      "https://schema.org/faxNumber": "039853-2376",
+      "https://schema.org/geo": {
+        "@id": "http://onlim.com/entity/a07b29af-c770-4252-b4d8-c477d521fa91",
+        "@type": "https://schema.org/GeoCoordinates",
+        "https://schema.org/latitude": {
+          "@type": "http://www.w3.org/2001/XMLSchema#double",
+          "@value": "53.3787724788882"
+        },
+        "https://schema.org/longitude": {
+          "@type": "http://www.w3.org/2001/XMLSchema#double",
+          "@value": "13.7179641736773"
+        },
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/2NErTNGpd"
+        }
+      },
+      "https://schema.org/hasMap": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://w3w.co/oberarm.kurier.bekannte"
+      },
+      "https://schema.org/identifier": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://dztkg.destination.one/item/reiseland-brandenburg/POI/DAMASPoi_12597"
+      },
+      "https://schema.org/image": [
+        {
+          "@id": "http://onlim.com/entity/25e8996f-cf1a-47e5-ad75-8f2189065ca4",
+          "@type": "https://schema.org/ImageObject",
+          "https://schema.org/author": {
+            "@id": "http://onlim.com/entity/b5a8b30c-8829-4b61-a664-0a7d3e7068f4",
+            "@type": "https://schema.org/Person",
+            "https://schema.org/name": "Doreen Bahlke",
+            "https://vocab.sti2.at/ds/compliesWith": {
+              "@id": "https://semantify.it/ds/luBQ_A5Y-"
+            }
+          },
+          "https://schema.org/contentUrl": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://img.ecmaps.de/remote/.jpg?project=dzt&mode=max&width=1920&height=1920&url=http://backoffice2.reiseland-brandenburg.de/rpcServer/public/file/get/id/432147"
+          },
+          "https://schema.org/copyrightHolder": {
+            "@id": "http://onlim.com/entity/ddea0c0a-f7a0-48a9-bfb0-f3ac3e3e8852",
+            "@type": "https://schema.org/Organization",
+            "https://schema.org/name": "Doreen Bahlke",
+            "https://vocab.sti2.at/ds/compliesWith": {
+              "@id": "https://semantify.it/ds/dA_C4oQ0p"
+            }
+          },
+          "https://schema.org/copyrightNotice": "Doreen Bahlke",
+          "https://schema.org/encodingFormat": "image/jpeg",
+          "https://schema.org/name": "Demeterhof Rittgarten",
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/ufjX_Cc5w"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/fe495d97-7ad2-433f-8d5e-6d91dcae4053",
+          "@type": "https://schema.org/ImageObject",
+          "https://schema.org/author": {
+            "@id": "http://onlim.com/entity/b6d2235c-78f0-443c-a659-ef2d46525c54",
+            "@type": "https://schema.org/Person",
+            "https://schema.org/name": "Doreen Bahlke",
+            "https://vocab.sti2.at/ds/compliesWith": {
+              "@id": "https://semantify.it/ds/luBQ_A5Y-"
+            }
+          },
+          "https://schema.org/contentUrl": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://img.ecmaps.de/remote/.jpg?project=dzt&mode=max&width=1920&height=1920&url=http://backoffice2.reiseland-brandenburg.de/rpcServer/public/file/get/id/432146"
+          },
+          "https://schema.org/copyrightHolder": {
+            "@id": "http://onlim.com/entity/a6be340d-2e9f-4675-9d54-a483b59b6a2a",
+            "@type": "https://schema.org/Organization",
+            "https://schema.org/name": "Doreen Bahlke",
+            "https://vocab.sti2.at/ds/compliesWith": {
+              "@id": "https://semantify.it/ds/dA_C4oQ0p"
+            }
+          },
+          "https://schema.org/copyrightNotice": "Doreen Bahlke",
+          "https://schema.org/encodingFormat": "image/jpeg",
+          "https://schema.org/name": "Demeterhof Rittgarten",
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/ufjX_Cc5w"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/b120706c-0e61-4c6d-8ed0-018e9f55a701",
+          "@type": "https://schema.org/ImageObject",
+          "https://schema.org/contentUrl": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://img.ecmaps.de/remote/.jpg?project=dzt&mode=max&width=1920&height=1920&url=http://backoffice2.reiseland-brandenburg.de/rpcServer/public/file/get/id/432148"
+          },
+          "https://schema.org/encodingFormat": "image/jpeg",
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/ufjX_Cc5w"
+          }
+        }
+      ],
+      "https://schema.org/isAccessibleForFree": {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": "false"
+      },
+      "https://schema.org/keywords": [
+        {
+          "@language": "de",
+          "@value": "drinnen"
+        },
+        {
+          "@language": "en",
+          "@value": "drinnen"
+        },
+        {
+          "@language": "de",
+          "@value": "region_Uckermark"
+        },
+        {
+          "@language": "en",
+          "@value": "region_Uckermark"
+        },
+        {
+          "@language": "de",
+          "@value": "5513"
+        },
+        {
+          "@language": "en",
+          "@value": "5513"
+        },
+        {
+          "@language": "de",
+          "@value": "Hofläden, Selbstpflücke"
+        },
+        {
+          "@language": "en",
+          "@value": "Hofläden, Selbstpflücke"
+        },
+        {
+          "@language": "de",
+          "@value": "Hofläden"
+        },
+        {
+          "@language": "en",
+          "@value": "Farm shops"
+        },
+        {
+          "@language": "de",
+          "@value": "itemID_12597"
+        },
+        {
+          "@language": "en",
+          "@value": "itemID_12597"
+        }
+      ],
+      "https://schema.org/name": [
+        {
+          "@language": "en",
+          "@value": "Demeterhof Rittgarten, farm"
+        },
+        {
+          "@language": "de",
+          "@value": "Demeterhof Rittgarten"
+        }
+      ],
+      "https://schema.org/openingHoursSpecification": [
+        {
+          "@id": "http://onlim.com/entity/17897424-6d8e-46d9-a037-7397d46d9862",
+          "@type": "https://schema.org/OpeningHoursSpecification",
+          "https://schema.org/closes": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "19:00:00"
+          },
+          "https://schema.org/dayOfWeek": {
+            "@id": "https://schema.org/Thursday"
+          },
+          "https://schema.org/opens": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "17:30:00"
+          },
+          "https://schema.org/validFrom": {
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+            "@value": "2020-01-01T17:30:00+01:00"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/rpOsHCyrE"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/9cbe489a-b2b6-4771-8481-6524c3286a64",
+          "@type": "https://schema.org/OpeningHoursSpecification",
+          "https://schema.org/closes": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "19:00:00"
+          },
+          "https://schema.org/dayOfWeek": {
+            "@id": "https://schema.org/Monday"
+          },
+          "https://schema.org/opens": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "17:30:00"
+          },
+          "https://schema.org/validFrom": {
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+            "@value": "2020-01-01T17:30:00+01:00"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/rpOsHCyrE"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/5c4017df-92a6-444e-a691-56a9d6df1e26",
+          "@type": "https://schema.org/OpeningHoursSpecification",
+          "https://schema.org/closes": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "19:00:00"
+          },
+          "https://schema.org/dayOfWeek": {
+            "@id": "https://schema.org/Tuesday"
+          },
+          "https://schema.org/opens": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "17:30:00"
+          },
+          "https://schema.org/validFrom": {
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+            "@value": "2020-01-01T17:30:00+01:00"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/rpOsHCyrE"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/5d1eb212-23dc-47c4-ba0f-36bb1e32d240",
+          "@type": "https://schema.org/OpeningHoursSpecification",
+          "https://schema.org/closes": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "19:00:00"
+          },
+          "https://schema.org/dayOfWeek": {
+            "@id": "https://schema.org/Wednesday"
+          },
+          "https://schema.org/opens": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "17:30:00"
+          },
+          "https://schema.org/validFrom": {
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+            "@value": "2020-01-01T17:30:00+01:00"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/rpOsHCyrE"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/f0636664-717d-40b8-ba58-2af35493ef57",
+          "@type": "https://schema.org/OpeningHoursSpecification",
+          "https://schema.org/closes": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "19:00:00"
+          },
+          "https://schema.org/dayOfWeek": {
+            "@id": "https://schema.org/Friday"
+          },
+          "https://schema.org/opens": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "17:30:00"
+          },
+          "https://schema.org/validFrom": {
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+            "@value": "2020-01-01T17:30:00+01:00"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/rpOsHCyrE"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/2c6bd740-80ce-4fb3-ae3a-660b5427b694",
+          "@type": "https://schema.org/OpeningHoursSpecification",
+          "https://schema.org/closes": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "19:00:00"
+          },
+          "https://schema.org/dayOfWeek": {
+            "@id": "https://schema.org/Saturday"
+          },
+          "https://schema.org/opens": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "17:30:00"
+          },
+          "https://schema.org/validFrom": {
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+            "@value": "2020-01-01T17:30:00+01:00"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/rpOsHCyrE"
+          }
+        }
+      ],
+      "https://schema.org/sdDatePublished": {
+        "@type": "http://www.w3.org/2001/XMLSchema#date",
+        "@value": "2023-08-14"
+      },
+      "https://schema.org/sdLicense": {
+        "@id": "http://onlim.com/entity/94bbe9ac-8eb3-40cf-9a24-bb2a326c7206",
+        "@type": "https://schema.org/CreativeWork",
+        "https://schema.org/license": {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.de"
+        },
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/08qsF9fXz"
+        }
+      },
+      "https://schema.org/sdPublisher": {
+        "@id": "http://onlim.com/entity/a81d9177-58f1-44b4-95e8-af60a32afb5b",
+        "@type": "https://schema.org/Organization",
+        "https://schema.org/name": "Reiseland Brandenburg",
+        "https://schema.org/url": {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://www.reiseland-brandenburg.de/"
+        },
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/dA_C4oQ0p"
+        }
+      },
+      "https://schema.org/telephone": "039853-2376",
+      "https://schema.org/url": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://www.demeter.de/betriebe/andrea-wesche-hof-rittgarten"
+      },
+      "https://vocab.sti2.at/ds/compliesWith": {
+        "@id": "https://semantify.it/ds/sloejGAwT"
+      }
+    },
+    {
+      "@id": "https://mein.toubiz.de/api/v1/article/2826fe2e-4252-11ee-91a7-db1325e1133a",
+      "@type": [
+        "https://schema.org/FoodEstablishment",
+        "https://schema.org/LocalBusiness",
+        "https://schema.org/Place",
+        "https://schema.org/Store",
+        "https://schema.org/BarOrPub",
+        "https://schema.org/GroceryStore",
+        "https://odta.io/voc/PointOfInterest"
+      ],
+      "https://schema.org/address": {
+        "@id": "http://onlim.com/entity/00b9796b-ba0b-4199-9b2a-e65dd5a11fa9",
+        "@type": "https://schema.org/PostalAddress",
+        "https://schema.org/addressCountry": {
+          "@id": "http://onlim.com/entity/b5feb954-9c6c-44ff-8dcd-5f5dbd6b84f0",
+          "@type": "https://schema.org/Country",
+          "https://schema.org/name": "DE",
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/NP8df6sKy#HvVVQ"
+          }
+        },
+        "https://schema.org/addressLocality": "Brackenheim",
+        "https://schema.org/addressRegion": "Baden-Württemberg",
+        "https://schema.org/postalCode": "74336",
+        "https://schema.org/streetAddress": "Hindenburgstraße 1",
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/NP8df6sKy"
+        }
+      },
+      "https://schema.org/description": {
+        "@id": "http://onlim.com/entity/fb30e3b5-9ff4-4838-aab6-f2ac595a146a",
+        "@type": "https://schema.org/CreativeWork",
+        "https://schema.org/author": {
+          "@id": "http://onlim.com/entity/6f708c0c-9d4c-42ec-a981-ab7e329ded93",
+          "@type": "https://schema.org/Person",
+          "https://schema.org/name": "Neckar-Zaber-Tourismus e.V.",
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/Wf-IXZvIo#pmOjQ"
+          }
+        },
+        "https://schema.org/license": {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "https://schema.org/text": {
+          "@language": "de",
+          "@value": "<p></p>\n<p>Seit 1823 befindet sich das Gasthaus Grüner Baum mit Biergarten und hauseigener Metzgerei im Familienbesitz der Familie Müller.</p>\n<p></p><p>Mittlerweile in 7. Generation führen die Brüder Bernd und Ralf Müller das Gasthaus mit Biergarten und Metzgerei in der Ortsmitte von Botenheim. So ist es auch die familiäre Atmosphäre, die den Aufenthalt im Grünen Baum so gemütlich macht. Auf der Karte finden sich neben den schwäbischen Klassikern wie Zwiebelrostbraten und Käsespätzle weitere feine Fleischgerichte und Vesperangebote. Viele Zutaten sowie die Weine werden von Lieferanten aus der Region bezogen. Aber auch frisches Bier vom Fass steht zum Durst löschen bereit.</p>\n<p><strong>Räumlichkeiten</strong></p>\n<ul>\n <li>Gastraum: 36 Sitzplätze</li>\n <li>Nebenräume: 20 + 84 Sitzplätze</li>\n <li>Biergarten: 84 Sitzplätze, teilweise      überdacht</li>\n</ul>\n<p><strong>Besonderheiten Grüner Baum</strong></p>\n<ul>\n <li>Busparkplatz und Buskarte</li>\n <li>hauseigene Metzgerei</li>\n <li>Tagungsmöglichkeit</li>\n <li>Catering</li>\n</ul>"
+        },
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/Wf-IXZvIo#DhUeF"
+        }
+      },
+      "https://schema.org/geo": {
+        "@id": "http://onlim.com/entity/0f76c10c-5302-4d40-bb74-16491b80ccbd",
+        "@type": "https://schema.org/GeoCoordinates",
+        "https://schema.org/latitude": {
+          "@type": "http://www.w3.org/2001/XMLSchema#double",
+          "@value": "49.0647651"
+        },
+        "https://schema.org/longitude": {
+          "@type": "http://www.w3.org/2001/XMLSchema#double",
+          "@value": "9.0662132"
+        },
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/2NErTNGpd"
+        }
+      },
+      "https://schema.org/hasMap": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://w3w.co/r%C3%BCcken.beobachter.zul%C3%A4ssige"
+      },
+      "https://schema.org/identifier": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://mein.toubiz.de/api/v1/article/2826fe2e-4252-11ee-91a7-db1325e1133a"
+      },
+      "https://schema.org/image": [
+        {
+          "@id": "http://onlim.com/entity/9c419bcc-b871-41e1-b4a8-8576944aec8d",
+          "@type": "https://schema.org/ImageObject",
+          "https://schema.org/contentUrl": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://mein.toubiz.de/api/v1/media/b60f5694-4254-11ee-941a-f1110f5f60eb/view"
+          },
+          "https://schema.org/copyrightNotice": {
+            "@language": "de",
+            "@value": "Neckar-Zaber-Tourismus e.V."
+          },
+          "https://schema.org/license": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "https://schema.org/name": {
+            "@language": "de",
+            "@value": "Gasthaus Grüner Baum"
+          },
+          "https://schema.org/thumbnailUrl": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://mein.toubiz.de/api/v1/media/b60f5694-4254-11ee-941a-f1110f5f60eb/view?w=500&hash=b75602&fm=jpg"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/ufjX_Cc5w"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/af8a2be2-7d73-4085-8f55-78195745f061",
+          "@type": "https://schema.org/ImageObject",
+          "https://schema.org/contentUrl": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://mein.toubiz.de/api/v1/media/b63d8a50-4254-11ee-a7e2-7b71cac045c1/view"
+          },
+          "https://schema.org/copyrightNotice": {
+            "@language": "de",
+            "@value": "Neckar-Zaber-Tourismus e.V."
+          },
+          "https://schema.org/license": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "https://schema.org/name": {
+            "@language": "de",
+            "@value": "Gasthaus Grüner Baum"
+          },
+          "https://schema.org/thumbnailUrl": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://mein.toubiz.de/api/v1/media/b63d8a50-4254-11ee-a7e2-7b71cac045c1/view?w=500&hash=e4694f&fm=jpg"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/ufjX_Cc5w"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/c3a4dbe8-fb7b-44d1-8be0-54b05ccc5cd8",
+          "@type": "https://schema.org/ImageObject",
+          "https://schema.org/contentUrl": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://mein.toubiz.de/api/v1/media/b62b335a-4254-11ee-913a-951cd1e6ee8f/view"
+          },
+          "https://schema.org/copyrightNotice": {
+            "@language": "de",
+            "@value": "Neckar-Zaber-Tourismus e.V."
+          },
+          "https://schema.org/license": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "https://schema.org/name": {
+            "@language": "de",
+            "@value": "Gasthaus Grüner Baum"
+          },
+          "https://schema.org/thumbnailUrl": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://mein.toubiz.de/api/v1/media/b62b335a-4254-11ee-913a-951cd1e6ee8f/view?w=500&hash=95f438&fm=jpg"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/ufjX_Cc5w"
+          }
+        }
+      ],
+      "https://schema.org/name": {
+        "@language": "de",
+        "@value": "Gasthaus Grüner Baum"
+      },
+      "https://schema.org/sdLicense": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "https://schema.org/specialOpeningHoursSpecification": [
+        {
+          "@id": "http://onlim.com/entity/0fb8cb1d-a6a6-44b5-ae5a-7a1857050c4f",
+          "@type": "https://schema.org/OpeningHoursSpecification",
+          "https://schema.org/closes": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "21:00:00"
+          },
+          "https://schema.org/dayOfWeek": [
+            {
+              "@id": "https://schema.org/Friday"
+            },
+            {
+              "@id": "https://schema.org/Thursday"
+            },
+            {
+              "@id": "https://schema.org/Tuesday"
+            },
+            {
+              "@id": "https://schema.org/Wednesday"
+            }
+          ],
+          "https://schema.org/description": {
+            "@language": "de",
+            "@value": "Öffnungszeiten 2023"
+          },
+          "https://schema.org/opens": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "17:00:00"
+          },
+          "https://schema.org/validFrom": {
+            "@type": "http://www.w3.org/2001/XMLSchema#date",
+            "@value": "2023-01-01"
+          },
+          "https://schema.org/validThrough": {
+            "@type": "http://www.w3.org/2001/XMLSchema#date",
+            "@value": "2023-12-31"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/rpOsHCyrE"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/20fec8fe-dadd-4e8d-9e47-6d82f3abe643",
+          "@type": "https://schema.org/OpeningHoursSpecification",
+          "https://schema.org/closes": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "13:00:00"
+          },
+          "https://schema.org/dayOfWeek": {
+            "@id": "https://schema.org/Saturday"
+          },
+          "https://schema.org/description": {
+            "@language": "de",
+            "@value": "Öffnungszeiten 2023"
+          },
+          "https://schema.org/opens": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "11:30:00"
+          },
+          "https://schema.org/validFrom": {
+            "@type": "http://www.w3.org/2001/XMLSchema#date",
+            "@value": "2023-01-01"
+          },
+          "https://schema.org/validThrough": {
+            "@type": "http://www.w3.org/2001/XMLSchema#date",
+            "@value": "2023-12-31"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/rpOsHCyrE"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/6aae3bb5-ecd6-405d-8a37-b84489ab7481",
+          "@type": "https://schema.org/OpeningHoursSpecification",
+          "https://schema.org/closes": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "21:00:00"
+          },
+          "https://schema.org/dayOfWeek": {
+            "@id": "https://schema.org/Sunday"
+          },
+          "https://schema.org/description": {
+            "@language": "de",
+            "@value": "Öffnungszeiten 2023"
+          },
+          "https://schema.org/opens": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "17:00:00"
+          },
+          "https://schema.org/validFrom": {
+            "@type": "http://www.w3.org/2001/XMLSchema#date",
+            "@value": "2023-01-01"
+          },
+          "https://schema.org/validThrough": {
+            "@type": "http://www.w3.org/2001/XMLSchema#date",
+            "@value": "2023-12-31"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/rpOsHCyrE"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/6bf3e200-0607-43e5-bf99-6c0117b86eb8",
+          "@type": "https://schema.org/OpeningHoursSpecification",
+          "https://schema.org/closes": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "14:00:00"
+          },
+          "https://schema.org/dayOfWeek": {
+            "@id": "https://schema.org/Sunday"
+          },
+          "https://schema.org/description": {
+            "@language": "de",
+            "@value": "Öffnungszeiten 2023"
+          },
+          "https://schema.org/opens": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "11:30:00"
+          },
+          "https://schema.org/validFrom": {
+            "@type": "http://www.w3.org/2001/XMLSchema#date",
+            "@value": "2023-01-01"
+          },
+          "https://schema.org/validThrough": {
+            "@type": "http://www.w3.org/2001/XMLSchema#date",
+            "@value": "2023-12-31"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/rpOsHCyrE"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/af6b3e79-da0c-4c52-a3fa-12a1d65f005e",
+          "@type": "https://schema.org/OpeningHoursSpecification",
+          "https://schema.org/closes": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "13:30:00"
+          },
+          "https://schema.org/dayOfWeek": [
+            {
+              "@id": "https://schema.org/Friday"
+            },
+            {
+              "@id": "https://schema.org/Thursday"
+            },
+            {
+              "@id": "https://schema.org/Tuesday"
+            },
+            {
+              "@id": "https://schema.org/Wednesday"
+            }
+          ],
+          "https://schema.org/description": {
+            "@language": "de",
+            "@value": "Öffnungszeiten 2023"
+          },
+          "https://schema.org/opens": {
+            "@type": "http://www.w3.org/2001/XMLSchema#time",
+            "@value": "11:30:00"
+          },
+          "https://schema.org/validFrom": {
+            "@type": "http://www.w3.org/2001/XMLSchema#date",
+            "@value": "2023-01-01"
+          },
+          "https://schema.org/validThrough": {
+            "@type": "http://www.w3.org/2001/XMLSchema#date",
+            "@value": "2023-12-31"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/rpOsHCyrE"
+          }
+        }
+      ],
+      "https://schema.org/telephone": "+49 7135 5357",
+      "https://schema.org/url": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://www.gruener-baum-botenheim.de"
+      },
+      "https://vocab.sti2.at/ds/compliesWith": {
+        "@id": "https://semantify.it/ds/sloejGAwT"
+      }
+    },
+    {
+      "@id": "https://thuecat.org/resources/dms_6175521",
+      "@type": "https://odta.io/voc/PointOfInterest",
+      "https://schema.org/additionalType": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://schema.org/Thing"
+        },
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://schema.org/CreativeWork"
+        },
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://schema.org/MediaObject"
+        },
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://schema.org/ImageObject"
+        },
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://purl.org/dc/dcmitype/Image"
+        }
+      ],
+      "https://schema.org/description": "Christbaumschmuck, Thüringer Weihnacht, Neuhaus am Rennweg",
+      "https://schema.org/identifier": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://thuecat.org/resources/dms_6175521"
+      },
+      "https://schema.org/mainEntityOfPage": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://cms.thuecat.org/o/adaptive-media/image/6175521/Preview-1280x0/image"
+      },
+      "https://schema.org/name": "Neuhaus-am-Rennweg-Glasblaeserei-Thueringer-Weihnacht-Christbaumschmuck-Tannenzapfen.jpg",
+      "https://schema.org/sameAs": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://wbk.thuecat.org"
+      },
+      "https://schema.org/sdLicense": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://cms.thuecat.org/datenquelle-thuecathttps:/cms.thuecat.org/datenquelle-thuecat"
+      },
+      "https://schema.org/url": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://cms.thuecat.org/o/adaptive-media/image/6175521/Preview-1280x0/image"
+      },
+      "https://vocab.sti2.at/ds/compliesWith": {
+        "@id": "https://semantify.it/ds/sloejGAwT"
+      }
+    },
+    {
+      "@id": "http://onlim.com/entity/6cc78e1f-c0ce-462d-b0bd-c1aa63f87716",
+      "@type": [
+        "https://schema.org/CivicStructure",
+        "https://schema.org/ParkingFacility",
+        "https://schema.org/Playground",
+        "https://odta.io/voc/PointOfInterest"
+      ],
+      "https://schema.org/address": {
+        "@id": "http://onlim.com/entity/a28e2ac9-449a-4b71-a8c6-7f8f91df6c84",
+        "@type": "https://schema.org/PostalAddress",
+        "https://schema.org/addressCountry": "Deutschland",
+        "https://schema.org/addressLocality": "Wingst",
+        "https://schema.org/postalCode": "21789",
+        "https://schema.org/streetAddress": "Kreuzung Am Olymp / Alter Postweg",
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/NP8df6sKy"
+        }
+      },
+      "https://schema.org/description": [
+        {
+          "@language": "de",
+          "@value": "Direkt am Familienerlebnisweg und am Knotenpunkt zahlreicher Wingster Wanderwege befindet sich der Waldspielplatz. Hier können die Kinder mitten im Wald spielen und toben.\nZum Spielplatz gehören auch ein kleiner Bolzplatz und Picknicktische, die z.T. auch überdacht sind.\nDer Wingster Waldzoo ist nur wenige hundert Meter entfernt."
+        },
+        {
+          "@id": "http://onlim.com/entity/5109458c-2ee4-4068-abdc-d061e4e9c3d4",
+          "@type": "https://schema.org/CreativeWork",
+          "https://schema.org/text": {
+            "@language": "de",
+            "@value": "Direkt am Familienerlebnisweg und am Knotenpunkt zahlreicher Wingster Wanderwege befindet sich der Waldspielplatz. Hier können die Kinder mitten im Wald spielen und toben.<br>Zum Spielplatz gehören auch ein kleiner Bolzplatz und Picknicktische, die z.T. auch überdacht sind.<p></p><p>Der Wingster Waldzoo ist nur wenige hundert Meter entfernt.<br></p>"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/Wf-IXZvIo#DhUeF"
+          }
+        }
+      ],
+      "https://schema.org/geo": {
+        "@id": "http://onlim.com/entity/48d81861-bdfe-4463-950a-f89d29bd1329",
+        "@type": "https://schema.org/GeoCoordinates",
+        "https://schema.org/latitude": {
+          "@type": "http://www.w3.org/2001/XMLSchema#double",
+          "@value": "53.73886335315118"
+        },
+        "https://schema.org/longitude": {
+          "@type": "http://www.w3.org/2001/XMLSchema#double",
+          "@value": "9.07196044921875"
+        },
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/2NErTNGpd"
+        }
+      },
+      "https://schema.org/hasMap": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://w3w.co/bekommt.einbauen.banken"
+      },
+      "https://schema.org/identifier": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://dztkg.destination.one/item/open-data-niedersachsen-tourismus/POI/p_100103069"
+      },
+      "https://schema.org/image": [
+        {
+          "@id": "http://onlim.com/entity/0973cf2f-7f81-4bd3-8a16-897b46598d9f",
+          "@type": "https://schema.org/ImageObject",
+          "https://schema.org/author": {
+            "@id": "http://onlim.com/entity/5a08b11e-baf8-4517-a456-d252d976f500",
+            "@type": "https://schema.org/Person",
+            "https://schema.org/name": "A. Brüning",
+            "https://vocab.sti2.at/ds/compliesWith": {
+              "@id": "https://semantify.it/ds/luBQ_A5Y-"
+            }
+          },
+          "https://schema.org/contentUrl": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://img.ecmaps.de/remote/.jpg?project=dzt&mode=max&width=1920&height=1920&url=https://dam.destination.one/867233/2a1f63aa90128f1cc3cceacca663e95c257bf4ea6f054dfdc42011060c0f605f/waldspielplatz-wingst.jpg"
+          },
+          "https://schema.org/copyrightHolder": {
+            "@id": "http://onlim.com/entity/996e2287-8734-46d7-86f7-fa2897e62da8",
+            "@type": "https://schema.org/Organization",
+            "https://schema.org/name": "A. Brüning",
+            "https://vocab.sti2.at/ds/compliesWith": {
+              "@id": "https://semantify.it/ds/dA_C4oQ0p"
+            }
+          },
+          "https://schema.org/copyrightNotice": "A. Brüning",
+          "https://schema.org/encodingFormat": "image/jpeg",
+          "https://schema.org/license": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "https://schema.org/name": "Waldspielplatz Wingst",
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/ufjX_Cc5w"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/0edc9891-981d-40b3-95bf-7c72fdcfb11b",
+          "@type": "https://schema.org/ImageObject",
+          "https://schema.org/author": {
+            "@id": "http://onlim.com/entity/7b97c59b-c582-4fba-ad9d-eaaf0cfd43fc",
+            "@type": "https://schema.org/Person",
+            "https://schema.org/name": "Bernd Otten Photographie",
+            "https://vocab.sti2.at/ds/compliesWith": {
+              "@id": "https://semantify.it/ds/luBQ_A5Y-"
+            }
+          },
+          "https://schema.org/contentUrl": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://img.ecmaps.de/remote/.jpg?project=dzt&mode=max&width=1920&height=1920&url=https://dam.destination.one/765001/613ff52ad59eada8c7f9c4a0ffa34a0f6b704b680e10cf0e50b48b35bb65ce4d/waldspielplatz-wingst.jpg"
+          },
+          "https://schema.org/copyrightHolder": {
+            "@id": "http://onlim.com/entity/91fc53ca-d597-474a-a857-dd2579eed22e",
+            "@type": "https://schema.org/Organization",
+            "https://schema.org/name": "Bernd Otten Photographie",
+            "https://vocab.sti2.at/ds/compliesWith": {
+              "@id": "https://semantify.it/ds/dA_C4oQ0p"
+            }
+          },
+          "https://schema.org/copyrightNotice": "Bernd Otten Photographie",
+          "https://schema.org/encodingFormat": "image/jpeg",
+          "https://schema.org/license": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://creativecommons.org/licenses/by-sa/4.0/"
+          },
+          "https://schema.org/name": "Waldspielplatz Wingst",
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/ufjX_Cc5w"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/2852298a-6ed6-4f12-9c4e-2e24757db8b2",
+          "@type": "https://schema.org/ImageObject",
+          "https://schema.org/author": {
+            "@id": "http://onlim.com/entity/f2df8854-dbf0-4286-a444-45e08454494a",
+            "@type": "https://schema.org/Person",
+            "https://schema.org/name": "A. Brüning",
+            "https://vocab.sti2.at/ds/compliesWith": {
+              "@id": "https://semantify.it/ds/luBQ_A5Y-"
+            }
+          },
+          "https://schema.org/contentUrl": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://img.ecmaps.de/remote/.jpg?project=dzt&mode=max&width=1920&height=1920&url=https://dam.destination.one/867234/f3d5269f8894d4e113591d9471a43afd771f295120ab5b05aa25dc77c73ae02e/waldspielplatz-wingst.jpg"
+          },
+          "https://schema.org/copyrightHolder": {
+            "@id": "http://onlim.com/entity/057ef3c6-eb2b-41c3-8291-1a762cffc7ca",
+            "@type": "https://schema.org/Organization",
+            "https://schema.org/name": "A. Brüning",
+            "https://vocab.sti2.at/ds/compliesWith": {
+              "@id": "https://semantify.it/ds/dA_C4oQ0p"
+            }
+          },
+          "https://schema.org/copyrightNotice": "A. Brüning",
+          "https://schema.org/encodingFormat": "image/jpeg",
+          "https://schema.org/license": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "https://schema.org/name": "Waldspielplatz Wingst",
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/ufjX_Cc5w"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/39524b71-165a-451c-afec-3953da2d4c2d",
+          "@type": "https://schema.org/ImageObject",
+          "https://schema.org/author": {
+            "@id": "http://onlim.com/entity/658e9d94-1cb4-4142-a00e-753ad8853dc4",
+            "@type": "https://schema.org/Person",
+            "https://schema.org/name": "A. Brüning",
+            "https://vocab.sti2.at/ds/compliesWith": {
+              "@id": "https://semantify.it/ds/luBQ_A5Y-"
+            }
+          },
+          "https://schema.org/contentUrl": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://img.ecmaps.de/remote/.jpg?project=dzt&mode=max&width=1920&height=1920&url=https://dam.destination.one/867232/6286c3ad594ee707d93b82fc229f27e740ec6ad218f3a2bfeebc4d14ad5ea718/waldspielplatz-wingst.jpg"
+          },
+          "https://schema.org/copyrightHolder": {
+            "@id": "http://onlim.com/entity/f6773eef-9136-49c3-b31e-0baff1d2d5ac",
+            "@type": "https://schema.org/Organization",
+            "https://schema.org/name": "A. Brüning",
+            "https://vocab.sti2.at/ds/compliesWith": {
+              "@id": "https://semantify.it/ds/dA_C4oQ0p"
+            }
+          },
+          "https://schema.org/copyrightNotice": "A. Brüning",
+          "https://schema.org/encodingFormat": "image/jpeg",
+          "https://schema.org/license": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "https://schema.org/name": "Waldspielplatz Wingst",
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/ufjX_Cc5w"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/d2584913-2c59-4dd7-a898-1eace3c5ecc8",
+          "@type": "https://schema.org/ImageObject",
+          "https://schema.org/author": {
+            "@id": "http://onlim.com/entity/735927f5-92a0-44ae-9af1-95009653acbd",
+            "@type": "https://schema.org/Person",
+            "https://schema.org/name": "A. Brüning",
+            "https://vocab.sti2.at/ds/compliesWith": {
+              "@id": "https://semantify.it/ds/luBQ_A5Y-"
+            }
+          },
+          "https://schema.org/contentUrl": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://img.ecmaps.de/remote/.jpg?project=dzt&mode=max&width=1920&height=1920&url=https://dam.destination.one/867239/d20dfd02af9a2ac11c8f5ec2dc62e9308cbedf4d4e7ebdeef0d387977be5990b/waldspielplatz-wingst.jpg"
+          },
+          "https://schema.org/copyrightHolder": {
+            "@id": "http://onlim.com/entity/f7d70c48-3b04-45d1-a761-0bca2c816f4b",
+            "@type": "https://schema.org/Organization",
+            "https://schema.org/name": "A. Brüning",
+            "https://vocab.sti2.at/ds/compliesWith": {
+              "@id": "https://semantify.it/ds/dA_C4oQ0p"
+            }
+          },
+          "https://schema.org/copyrightNotice": "A. Brüning",
+          "https://schema.org/encodingFormat": "image/jpeg",
+          "https://schema.org/license": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "https://schema.org/name": "Waldspielplatz Wingst",
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/ufjX_Cc5w"
+          }
+        },
+        {
+          "@id": "http://onlim.com/entity/817bd114-ba5b-4bbd-900a-423e2b034f1d",
+          "@type": "https://schema.org/ImageObject",
+          "https://schema.org/author": {
+            "@id": "http://onlim.com/entity/2908d4c1-02b0-4b8c-a37a-19bdf0f92652",
+            "@type": "https://schema.org/Person",
+            "https://schema.org/name": "A. Brüning",
+            "https://vocab.sti2.at/ds/compliesWith": {
+              "@id": "https://semantify.it/ds/luBQ_A5Y-"
+            }
+          },
+          "https://schema.org/contentUrl": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://img.ecmaps.de/remote/.jpg?project=dzt&mode=max&width=1920&height=1920&url=https://dam.destination.one/867237/e57cdbcc9e4e163be3927a9a298816b8adbc2409530357b33030ce4f5a523693/waldspielplatz-wingst.jpg"
+          },
+          "https://schema.org/copyrightHolder": {
+            "@id": "http://onlim.com/entity/a0f43f98-c662-492f-b2d0-bc340fe80b5d",
+            "@type": "https://schema.org/Organization",
+            "https://schema.org/name": "A. Brüning",
+            "https://vocab.sti2.at/ds/compliesWith": {
+              "@id": "https://semantify.it/ds/dA_C4oQ0p"
+            }
+          },
+          "https://schema.org/copyrightNotice": "A. Brüning",
+          "https://schema.org/encodingFormat": "image/jpeg",
+          "https://schema.org/license": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "https://schema.org/name": "Waldspielplatz Wingst",
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/ufjX_Cc5w"
+          }
+        }
+      ],
+      "https://schema.org/isAccessibleForFree": {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": "false"
+      },
+      "https://schema.org/keywords": [
+        {
+          "@language": "de",
+          "@value": "Wandern"
+        },
+        {
+          "@language": "de",
+          "@value": "Kinderspielplatz"
+        },
+        {
+          "@language": "en",
+          "@value": "Wandern"
+        },
+        {
+          "@language": "en",
+          "@value": "Shelter/covered rest area"
+        },
+        {
+          "@language": "de",
+          "@value": "Schutzhütte/überdachter Rastplatz"
+        },
+        {
+          "@language": "en",
+          "@value": "Children’s playground"
+        },
+        {
+          "@language": "en",
+          "@value": "Walkers/hikers’ car park"
+        },
+        {
+          "@language": "de",
+          "@value": "Wander-Parkplatz"
+        },
+        {
+          "@language": "en",
+          "@value": "Picnic area"
+        },
+        {
+          "@language": "de",
+          "@value": "Picknickplatz"
+        }
+      ],
+      "https://schema.org/name": {
+        "@language": "de",
+        "@value": "Waldspielplatz"
+      },
+      "https://schema.org/sdDatePublished": {
+        "@type": "http://www.w3.org/2001/XMLSchema#date",
+        "@value": "2023-07-24"
+      },
+      "https://schema.org/sdLicense": {
+        "@id": "http://onlim.com/entity/399e25be-d5a7-4ce2-9580-3bdcb244b2c2",
+        "@type": "https://schema.org/CreativeWork",
+        "https://schema.org/author": {
+          "@id": "http://onlim.com/entity/9f1c1c7b-3dd3-4d7f-a578-019bfd57565b",
+          "@type": "https://schema.org/Person",
+          "https://schema.org/name": "Cuxland-Tourismus",
+          "https://schema.org/url": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://www.cuxland.de/"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/08qsF9fXz#wcYYa"
+          }
+        },
+        "https://schema.org/copyrightHolder": {
+          "@id": "http://onlim.com/entity/8b4102ec-7f11-4a14-9110-05a208550891",
+          "@type": "https://schema.org/Person",
+          "https://schema.org/name": "Cuxland-Tourismus",
+          "https://schema.org/url": {
+            "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "@value": "https://www.cuxland.de/"
+          },
+          "https://vocab.sti2.at/ds/compliesWith": {
+            "@id": "https://semantify.it/ds/luBQ_A5Y-"
+          }
+        },
+        "https://schema.org/copyrightNotice": "Cuxland-Tourismus",
+        "https://schema.org/license": {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "https://www.cuxland.de/"
+        },
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/08qsF9fXz"
+        }
+      },
+      "https://schema.org/sdPublisher": {
+        "@id": "http://onlim.com/entity/7dec079f-6b2c-4dab-990e-8965b811e1f3",
+        "@type": "https://schema.org/Organization",
+        "https://schema.org/name": "Cuxland-Tourismus",
+        "https://schema.org/url": {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "https://www.cuxland.de/"
+        },
+        "https://vocab.sti2.at/ds/compliesWith": {
+          "@id": "https://semantify.it/ds/dA_C4oQ0p"
+        }
+      },
+      "https://vocab.sti2.at/ds/compliesWith": {
+        "@id": "https://semantify.it/ds/sloejGAwT"
+      }
+    },
+    {
+      "@id": "https://thuecat.org/resources/dms_6256624",
+      "@type": "https://odta.io/voc/PointOfInterest",
+      "https://schema.org/additionalType": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://schema.org/Thing"
+        },
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://schema.org/CreativeWork"
+        },
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://schema.org/MediaObject"
+        },
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://schema.org/ImageObject"
+        },
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "@value": "http://purl.org/dc/dcmitype/Image"
+        }
+      ],
+      "https://schema.org/description": "Café Enzian Getränke",
+      "https://schema.org/identifier": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://thuecat.org/resources/dms_6256624"
+      },
+      "https://schema.org/mainEntityOfPage": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://cms.thuecat.org/documents/58418/6176751/Rennsteiggarten_Oberhof_CafeEnzian-Getraenke.jpg.jpg/cc152835-112e-2421-ef2d-1dd11025fd5c"
+      },
+      "https://schema.org/name": "Rennsteiggarten_Oberhof_CafeEnzian-Getraenke.jpg.jpg",
+      "https://schema.org/sameAs": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://wbk.thuecat.org"
+      },
+      "https://schema.org/sdLicense": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://cms.thuecat.org/datenquelle-thuecathttps:/cms.thuecat.org/datenquelle-thuecat"
+      },
+      "https://schema.org/url": {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://cms.thuecat.org/documents/58418/6176751/Rennsteiggarten_Oberhof_CafeEnzian-Getraenke.jpg.jpg/cc152835-112e-2421-ef2d-1dd11025fd5c"
+      },
+      "https://vocab.sti2.at/ds/compliesWith": {
+        "@id": "https://semantify.it/ds/sloejGAwT"
+      }
+    }
+  ]
+}
