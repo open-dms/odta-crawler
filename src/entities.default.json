@@ -1,57 +1,46 @@
 [
   {
     "name": "event",
-    "ds": "https://semantify.it/ds/mhpmBCJJt",
-    "pageSize": 10
+    "ds": "https://semantify.it/ds/mhpmBCJJt"
   },
   {
     "name": "poi",
-    "ds": "https://semantify.it/ds/sloejGAwT",
-    "pageSize": 10
+    "ds": "https://semantify.it/ds/sloejGAwT"
   },
   {
     "name": "trail",
-    "ds": "https://semantify.it/ds/nBTyKDsKX",
-    "pageSize": 10
+    "ds": "https://semantify.it/ds/nBTyKDsKX"
   },
   {
     "name": "city",
-    "ds": "https://semantify.it/ds/3TCH6JP9I",
-    "pageSize": 10
+    "ds": "https://semantify.it/ds/3TCH6JP9I"
   },
   {
     "name": "lodging",
-    "ds": "https://semantify.it/ds/Sypf3bVG1z",
-    "pageSize": 10
+    "ds": "https://semantify.it/ds/Sypf3bVG1z"
   },
   {
     "name": "offer",
-    "ds": "https://semantify.it/ds/jM_FHnHO2",
-    "pageSize": 10
+    "ds": "https://semantify.it/ds/jM_FHnHO2"
   },
   {
     "name": "localBusiness",
-    "ds": "https://semantify.it/ds/uGBhB9lBI",
-    "pageSize": 10
+    "ds": "https://semantify.it/ds/uGBhB9lBI"
   },
   {
     "name": "person",
-    "ds": "https://semantify.it/ds/iB4eyYN5K",
-    "pageSize": 10
+    "ds": "https://semantify.it/ds/iB4eyYN5K"
   },
   {
     "name": "story",
-    "ds": "https://semantify.it/ds/uuViIIXD3",
-    "pageSize": 10
+    "ds": "https://semantify.it/ds/uuViIIXD3"
   },
   {
     "name": "foodEstablishment",
-    "ds": "https://semantify.it/ds/SyCG2WVzkz",
-    "pageSize": 10
+    "ds": "https://semantify.it/ds/SyCG2WVzkz"
   },
   {
     "name": "audience",
-    "ds": "https://semantify.it/ds/SiBhUuX_i",
-    "pageSize": 10
+    "ds": "https://semantify.it/ds/SiBhUuX_i"
   }
 ]

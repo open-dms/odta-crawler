@@ -1,4 +1,4 @@
-import { access, readFile, writeFile } from "fs/promises";
+import { readFile, writeFile } from "fs/promises";
 import path from "path";
 import { RcFileNotFoundError } from "./RcFileNotFoundError";
 import defaultEntities from "./entities.default.json";
@@ -7,17 +7,16 @@ const rcFile = path.join(process.cwd(), ".entitiesrc.json");
 
 export async function getAllEntities(): Promise<Array<Entity>> {
   try {
-    await access(rcFile);
     const data = await readFile(rcFile, "utf-8");
     if (!data) {
       throw new RcFileNotFoundError("rc file not found, creating one...");
     }
     return JSON.parse(data);
-  } catch (e) {
-    if (e instanceof RcFileNotFoundError) {
+  } catch (err) {
+    if (err instanceof Error && "code" in err && err.code === "ENOENT") {
       return defaultEntities as Array<Entity>;
     }
-    throw e;
+    throw err;
   }
 }
 
@@ -30,20 +29,26 @@ export async function updateEntity(
   return writeFile(rcFile, JSON.stringify(entities));
 }
 
-function isUntouched(
-  entity: Entity
-): entity is Entity & { currentPage: undefined; total: undefined } {
-  return (
-    typeof entity.total === "undefined" ||
-    typeof entity.currentPage === "undefined"
-  );
+function isUntouched(entity: Entity): entity is Entity & {
+  currentPage: undefined;
+  sortSeed: undefined;
+  pageSize: undefined;
+  total: undefined;
+} {
+  return !isTouched(entity);
 }
 
-function isTouched(
-  entity: Entity
-): entity is Entity & { currentPage: number; total: number } {
+function isTouched(entity: Entity): entity is Entity & {
+  currentPage: number;
+  sortSeed: string;
+  pageSize: number;
+  total: number;
+} {
   return (
-    typeof entity.total === "number" || typeof entity.currentPage === "number"
+    typeof entity.currentPage === "number" &&
+    typeof entity.sortSeed === "string" &&
+    typeof entity.pageSize === "number" &&
+    typeof entity.total === "number"
   );
 }
 
@@ -58,10 +63,13 @@ export async function getNextEntity(): Promise<Entity | null> {
   let selectedEntity: Entity | null = null;
 
   for (const entity of entities.filter(isTouched)) {
-    if (entity.currentPage >= (entity.total || Infinity)) {
+    if (entity.total === 0) {
       continue;
     }
-    const ratio = entity.currentPage / (entity.total || 1);
+    if (entity.currentPage >= entity.total * entity.pageSize) {
+      continue;
+    }
+    const ratio = (entity.currentPage * entity.pageSize) / (entity.total || 1);
     if (ratio < minRatio) {
       minRatio = ratio;
       selectedEntity = entity;

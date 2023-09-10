@@ -1,6 +1,10 @@
-import { access, readFile, writeFile } from "fs/promises";
+import { readFile, writeFile } from "fs/promises";
 import { getAllEntities, getNextEntity, updateEntity } from "./entities";
 import mockEntitiesRc from "./__mock__/.entitiesrc.json";
+
+class MockFileError extends Error {
+  code = "ENOENT";
+}
 
 describe("Entities", () => {
   afterEach(() => {
@@ -9,7 +13,7 @@ describe("Entities", () => {
   });
 
   it("should get default entities", async () => {
-    (<jest.Mock>access).mockResolvedValue(false);
+    (<jest.Mock>readFile).mockRejectedValue(new MockFileError());
     expect(await getAllEntities()).toBeInstanceOf(Array);
     expect(await getAllEntities()).toHaveLength(11);
     expect(await getAllEntities()).toMatchObject(
@@ -26,7 +30,6 @@ describe("Entities", () => {
   });
 
   it("should get entities from rc file", async () => {
-    (<jest.Mock>access).mockResolvedValue(true);
     (<jest.Mock>readFile).mockResolvedValue(JSON.stringify(mockEntitiesRc));
     const entities = await getAllEntities();
     expect(entities[0]).toMatchObject({
@@ -38,10 +41,15 @@ describe("Entities", () => {
     });
   });
 
-  it("picks the next entity without total", async () => {
-    const mockEntities: Array<Entity> = [
-      { currentPage: 10, total: 30, name: "", ds: "" },
-      { currentPage: 10, name: "", ds: "" },
+  it("picks the next untouched entity", async () => {
+    const mockEntities: Array<Partial<Entity>> = [
+      {
+        currentPage: 1,
+        sortSeed: "random",
+        pageSize: 10,
+        total: 30,
+      },
+      { name: "mock-untouched" },
     ];
     (<jest.Mock>readFile).mockResolvedValue(JSON.stringify(mockEntities));
     expect(await getNextEntity()).toMatchObject(mockEntities[1]);
