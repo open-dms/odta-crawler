@@ -4,26 +4,27 @@ import { getNextEntity } from "../entities";
 import { ODTAReadableStream } from "./ODTAReadableStream";
 import mockPoi from "./__mocks__/fetchPoi.json";
 
-global.fetch = jest.fn();
+jest.useFakeTimers();
 
 jest.mock("../entities", () => ({
   getNextEntity: jest.fn(),
   updateEntity: jest.fn(),
 }));
 
-describe("ODTA api reader", () => {
+describe("ODTAReadableStream", () => {
   afterEach(() => {
     jest.resetAllMocks();
     jest.clearAllTimers();
   });
 
-  it("should fetch from odta api", async () => {
+  it("should fetch", async () => {
     (<jest.Mock>getNextEntity).mockResolvedValueOnce(mockEntities[0]);
     (<jest.Mock>getNextEntity).mockResolvedValueOnce(null);
     (<jest.Mock>fetch).mockResolvedValue({
       ok: true,
       json: jest.fn().mockResolvedValue(mockPoi),
     });
+
     jest.setSystemTime(1);
 
     const stream = new ODTAReadableStream();
@@ -31,6 +32,10 @@ describe("ODTA api reader", () => {
 
     stream.on("data", (item: NodeObject) => {
       result.push(item);
+    });
+
+    stream.once("data", () => {
+      jest.runAllTimers();
     });
 
     await new Promise((resolve) => stream.on("end", resolve));

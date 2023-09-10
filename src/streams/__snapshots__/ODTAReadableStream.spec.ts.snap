@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ODTA api reader should fetch from odta api 1`] = `
+exports[`ODTAReadableStream should fetch 1`] = `
 [
   {
     "@id": "https://thuecat.org/resources/dms_6219787",
