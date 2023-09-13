@@ -1,7 +1,8 @@
 interface Entity {
   name: string;
   ds: string;
-  currentPage?: number;
+  queue: Array<number>;
+  head?: number;
   sortSeed?: string;
   pageSize?: number;
   total?: number;

@@ -1,15 +1,9 @@
+import { readFile } from "fs/promises";
 import { NodeObject } from "jsonld";
-import mockEntities from "../__mock__/.entitiesrc.json";
-import { getNextEntity } from "../entities";
 import { ODTAReadableStream } from "./ODTAReadableStream";
 import mockPoi from "./__mocks__/fetchPoi.json";
 
 jest.useFakeTimers();
-
-jest.mock("../entities", () => ({
-  getNextEntity: jest.fn(),
-  updateEntity: jest.fn(),
-}));
 
 describe("ODTAReadableStream", () => {
   afterEach(() => {
@@ -18,8 +12,18 @@ describe("ODTAReadableStream", () => {
   });
 
   it("should fetch", async () => {
-    (<jest.Mock>getNextEntity).mockResolvedValueOnce(mockEntities[0]);
-    (<jest.Mock>getNextEntity).mockResolvedValueOnce(null);
+    (<jest.Mock>readFile).mockResolvedValue(
+      JSON.stringify([
+        {
+          name: "mock-entity-1",
+          ds: "https://semantify.it/ds/mhpmBCJJt",
+          head: 0,
+          pageSize: 10,
+          sortSeed: "random",
+          total: 20,
+        },
+      ])
+    );
     (<jest.Mock>fetch).mockResolvedValue({
       ok: true,
       json: jest.fn().mockResolvedValue(mockPoi),
@@ -39,7 +43,6 @@ describe("ODTAReadableStream", () => {
     });
 
     await new Promise((resolve) => stream.on("end", resolve));
-
     expect(result).toHaveLength(10);
     expect(result).toMatchObject(
       expect.arrayContaining([

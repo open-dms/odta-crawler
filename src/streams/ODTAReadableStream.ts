@@ -1,23 +1,8 @@
-import jsonld, { NodeObject } from "jsonld";
+import { NodeObject } from "jsonld";
 import { Readable, ReadableOptions } from "node:stream";
-import { apiKey, apiUrl } from "../config";
-import { getNextEntity, updateEntity } from "../entities";
+import { Entity } from "../Entity";
 
 export class ODTAReadableStream<T extends NodeObject> extends Readable {
-  private context = {
-    odms: "https://open-dms.org/",
-    schema: "https://schema.org/",
-    xsd: "http://www.w3.org/2001/XMLSchema#",
-    dc: "http://purl.org/dc/dcmitype/",
-    sti2: "https://vocab.sti2.at/ds/",
-    meta: {
-      "@id": "odms:meta",
-      "@type": "@id",
-    },
-    responseTime: "odms:responseTime",
-    lastQueryTime: "odms:lastQueryTime",
-  };
-
   throttleTimeout?: NodeJS.Timeout;
   private throttleTime: number = 1000 * 5;
   private maxConcurrentRequests = 5;
@@ -26,6 +11,8 @@ export class ODTAReadableStream<T extends NodeObject> extends Readable {
   private fetchCount = 0;
   private stopPushing = false;
   private shouldEnd = false;
+
+  private entities: Array<Entity> | null = null;
 
   constructor({
     throttleTime,
@@ -41,7 +28,7 @@ export class ODTAReadableStream<T extends NodeObject> extends Readable {
       maxConcurrentRequests || this.maxConcurrentRequests;
   }
 
-  _read(): void {
+  async _read(): Promise<void> {
     this.stopPushing = false;
 
     if (this.buffer.length > 0) {
@@ -73,7 +60,11 @@ export class ODTAReadableStream<T extends NodeObject> extends Readable {
   }
 
   async fetch(): Promise<void> {
-    const entity = await getNextEntity();
+    if (!this.entities) {
+      this.entities = await Entity.loadEntities();
+    }
+
+    const entity = Entity.getNextEntity(this.entities);
 
     if (!entity) {
       // TODO should log notice and start over
@@ -83,89 +74,15 @@ export class ODTAReadableStream<T extends NodeObject> extends Readable {
       return;
     }
 
-    const start = Date.now();
+    console.log("fetching", String(entity));
+
     this.fetchCount++;
 
-    const url = new URL(`${apiUrl}/things`);
-    url.searchParams.append("filterDs", entity.ds);
-    entity.sortSeed && url.searchParams.append("sortSeed", entity.sortSeed);
+    const buffer = await entity.fetch();
 
-    const pageSize = entity.pageSize || 10;
-    const page = entity.currentPage === undefined ? 0 : entity.currentPage + 1;
-
-    console.log(
-      `fetch entity=${entity.name}; page=${page}/${Math.ceil(
-        (entity.total || Infinity) / pageSize
-      )}`
-    );
-
-    const response = await fetch(url, {
-      headers: {
-        "x-api-key": apiKey,
-        "page-size": String(pageSize),
-        page: String(page),
-      },
-    });
-
-    const responseTime = Date.now() - start;
     this.fetchCount--;
 
-    if (!response.ok) {
-      this.emit(
-        "error",
-        new Error(`${response.status} ${response.statusText}`)
-      );
-      return;
-    }
-
-    const {
-      metaData,
-      data,
-    }: {
-      metaData: ODTAMetaData;
-      data: Array<T>;
-    } = await response.json();
-
-    if (!metaData) {
-      this.emit(
-        "error",
-        new Error(`Bad Response: metaData or data not found in response text`)
-      );
-      return;
-    }
-
-    await updateEntity({
-      ...entity,
-      total: metaData.total,
-      sortSeed: metaData.sortSeed,
-      currentPage: metaData["current-page"],
-    });
-
-    if (metaData.total === 0) {
-      return;
-    }
-
-    if (!Array.isArray(data)) {
-      this.emit("error", `Data did have the wrong type (${typeof data})`);
-      return;
-    }
-
-    const buffer = await Promise.all(
-      data.map(async (item) =>
-        (({ "@context": _, ...compacted }) => compacted)(
-          await jsonld.compact(
-            {
-              ...item,
-              [`${this.context.odms}meta`]: {
-                [`${this.context.odms}lastQueryTime`]: Date.now(),
-                [`${this.context.odms}responseTime`]: responseTime,
-              },
-            },
-            this.context
-          )
-        )
-      )
-    );
+    console.log("done fetching", String(entity));
 
     if (!this.buffer.length && !this.stopPushing) {
       const continuePushing = this.push(buffer.shift());

@@ -2,7 +2,7 @@
   {
     "name": "mock-entity-1",
     "ds": "https://semantify.it/ds/mhpmBCJJt",
-    "currentPage": 0,
+    "head": 0,
     "pageSize": 10,
     "sortSeed": "random",
     "total": 430679

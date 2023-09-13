@@ -2,7 +2,7 @@
   "metaData": {
     "dsCount": {
       "https://semantify.it/ds/sloejGAwT": {
-        "count": "44326",
+        "count": "20",
         "name": {
           "de": "Sehenswürdigkeit"
         }
@@ -10,7 +10,7 @@
     },
     "page-size": 10,
     "sortSeed": "8ce522a2-3314-471a-8871-8cc2a3a51f1e",
-    "total": 44326,
+    "total": 20,
     "current-page": 1
   },
   "data": [
