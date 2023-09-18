@@ -2,7 +2,7 @@ import { NodeObject } from "jsonld";
 import { Readable, ReadableOptions } from "node:stream";
 import { Entity } from "../Entity";
 
-export class ODTAReadableStream<T extends NodeObject> extends Readable {
+export class ODTAReadableStream extends Readable {
   throttleTimeout?: NodeJS.Timeout;
   private throttleTime: number = 1000 * 5;
   private maxConcurrentRequests = 5;
@@ -50,6 +50,7 @@ export class ODTAReadableStream<T extends NodeObject> extends Readable {
     }
 
     this.throttleTimeout = setTimeout(() => {
+      this.entities && Entity.saveEntities(this.entities);
       delete this.throttleTimeout;
       if (this.fetchCount < this.maxConcurrentRequests) {
         this.fetch();
@@ -89,7 +90,7 @@ export class ODTAReadableStream<T extends NodeObject> extends Readable {
       if (!continuePushing) {
         this.stopPushing = true;
       }
-      this.buffer.push(...buffer);
     }
+    this.buffer.push(...buffer);
   }
 }

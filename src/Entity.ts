@@ -9,30 +9,7 @@ const rcFile = path.join(process.cwd(), ".entitiesrc.json");
 
 type defaultInitialProps = { name: string; ds: string };
 
-function isUntouched(entity: Entity): entity is Entity & {
-  head: undefined;
-  sortSeed: undefined;
-  pageSize: undefined;
-  total: undefined;
-} {
-  return !isTouched(entity);
-}
-
-function isTouched(entity: Entity): entity is Entity & {
-  head: number;
-  sortSeed: string;
-  pageSize: number;
-  total: number;
-} {
-  return (
-    typeof entity.head === "number" &&
-    typeof entity.sortSeed === "string" &&
-    typeof entity.pageSize === "number" &&
-    typeof entity.total === "number"
-  );
-}
-
-export class Entity<T = NodeObject> {
+export class Entity {
   public name: string;
   public ds: string;
   public head?: number;
@@ -54,6 +31,7 @@ export class Entity<T = NodeObject> {
     responseTime: "odms:responseTime",
     lastQueryTime: "odms:lastQueryTime",
   };
+  private isFetching = false;
 
   constructor(initialProps: Entity & defaultInitialProps) {
     Object.assign(this, initialProps);
@@ -62,16 +40,29 @@ export class Entity<T = NodeObject> {
     this.queue = [];
   }
 
+  get untouched() {
+    return (
+      typeof this.head !== "number" &&
+      typeof this.sortSeed !== "string" &&
+      typeof this.pageSize !== "number" &&
+      typeof this.total !== "number" &&
+      this.isFetching === false
+    );
+  }
+
   async fetch(): Promise<Array<NodeObject>> {
+    this.isFetching = true;
+
     const url = new URL(`${apiUrl}/things`);
     url.searchParams.append("filterDs", this.ds);
     this.sortSeed && url.searchParams.append("sortSeed", this.sortSeed);
 
     const pageSize = this.pageSize || 10;
-    const head = this.head !== undefined ? this.head : 0;
     const queueHead = this.queue.sort().slice(-1).shift();
-    const page = Math.max(head, queueHead || 0) + 1;
-
+    const page = Math.max(
+      this.head === undefined ? 0 : this.head + 1,
+      queueHead === undefined ? 0 : queueHead + 1
+    );
     this.queue.push(page);
     const start = Date.now();
 
@@ -96,7 +87,7 @@ export class Entity<T = NodeObject> {
       data,
     }: {
       metaData: ODTAMetaData;
-      data: Array<T>;
+      data: Array<NodeObject>;
     } = await response.json();
 
     if (!metaData) {
@@ -113,12 +104,16 @@ export class Entity<T = NodeObject> {
       throw new Error(`Data did have the wrong type (${typeof data})`);
     }
 
-    this.head = this.head
-      ? Math.max(this.head, metaData["current-page"])
-      : metaData["current-page"];
+    this.head =
+      this.head === undefined
+        ? metaData["current-page"]
+        : Math.max(this.head, metaData["current-page"]);
     this.queue = this.queue.filter((item) => item !== metaData["current-page"]);
+    this.pageSize = metaData["page-size"];
     this.sortSeed = metaData.sortSeed;
     this.total = metaData.total;
+
+    this.isFetching = false;
 
     return await Promise.all(
       data.map(async (item) =>
@@ -163,11 +158,25 @@ export class Entity<T = NodeObject> {
   }
 
   static saveEntities(entities: Array<Entity>): Promise<void> {
-    return writeFile(rcFile, JSON.stringify(entities));
+    console.log("[Entity] Saving entity stats...");
+
+    return writeFile(
+      rcFile,
+      JSON.stringify(
+        entities.map(({ name, ds, head, sortSeed, pageSize, total }) => ({
+          name,
+          ds,
+          head,
+          sortSeed,
+          pageSize,
+          total,
+        }))
+      )
+    );
   }
 
   static getNextEntity(entities: Array<Entity>): Entity | null {
-    const untouched = entities.find(isUntouched);
+    const untouched = entities.find(({ untouched }) => untouched);
     if (untouched) {
       return untouched;
     }
@@ -175,10 +184,12 @@ export class Entity<T = NodeObject> {
     let minRatio = Infinity;
     let selectedEntity: Entity | null = null;
 
-    for (const entity of entities.filter(isTouched)) {
-      const head = entity.queue.sort().slice(-1).shift() || entity.head;
+    for (const entity of entities.filter(({ untouched }) => !untouched)) {
+      const head = entity.queue.sort().slice(-1).shift() || entity.head || 0;
       const nextPage = head + 1;
-      const totalPages = Math.ceil(entity.total / entity.pageSize);
+      const totalPages = Math.ceil(
+        (entity.total || 0) / (entity.pageSize || 10)
+      );
 
       if (totalPages === 0 || nextPage >= totalPages) {
         continue;
