@@ -58,9 +58,9 @@ describe("Entities", () => {
 
   it("picks the next entity with lowest total to current ratio", async () => {
     const mockEntities: Array<Partial<Entity>> = [
-      { head: 10, pageSize: 10, total: 30, name: "mock-1" },
-      { head: 10, pageSize: 10, total: 20, name: "mock-2" },
-      { head: 10, pageSize: 10, total: 10, name: "mock-3" },
+      { head: 1, name: "mock-1", pageSize: 10, sortSeed: "random", total: 30 },
+      { head: 1, name: "mock-2", pageSize: 10, sortSeed: "random", total: 20 },
+      { head: 1, name: "mock-3", pageSize: 10, sortSeed: "random", total: 10 },
     ];
     (<jest.Mock>readFile).mockResolvedValue(JSON.stringify(mockEntities));
     const entities = await Entity.loadEntities();

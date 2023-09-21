@@ -51,8 +51,8 @@ export class Entity {
   get untouched() {
     return (
       typeof this.head !== "number" &&
-      typeof this.sortSeed !== "string" &&
       typeof this.pageSize !== "number" &&
+      typeof this.sortSeed !== "string" &&
       typeof this.total !== "number" &&
       this.isFetching === false
     );
