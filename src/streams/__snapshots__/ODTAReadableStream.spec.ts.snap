@@ -6,6 +6,7 @@ exports[`ODTAReadableStream should fetch 1`] = `
     "@id": "https://thuecat.org/resources/dms_6219787",
     "@type": "https://odta.io/voc/PointOfInterest",
     "meta": {
+      "entityName": "mock-entity-1",
       "lastQueryTime": 1,
       "responseTime": 0,
     },
@@ -64,6 +65,7 @@ exports[`ODTAReadableStream should fetch 1`] = `
       "https://odta.io/voc/PointOfInterest",
     ],
     "meta": {
+      "entityName": "mock-entity-1",
       "lastQueryTime": 1,
       "responseTime": 0,
     },
@@ -174,6 +176,7 @@ exports[`ODTAReadableStream should fetch 1`] = `
       "https://odta.io/voc/PointOfInterest",
     ],
     "meta": {
+      "entityName": "mock-entity-1",
       "lastQueryTime": 1,
       "responseTime": 0,
     },
@@ -284,6 +287,7 @@ exports[`ODTAReadableStream should fetch 1`] = `
     "@id": "http://onlim.com/entity/ee9ff0c3-410f-4ac8-9c26-c3b2ae88f310",
     "@type": "https://odta.io/voc/PointOfInterest",
     "meta": {
+      "entityName": "mock-entity-1",
       "lastQueryTime": 1,
       "responseTime": 0,
     },
@@ -426,6 +430,7 @@ Nach einer Überlieferung soll sich ein denkwürdiger Plausch an der Wöllepump 
     "@id": "https://thuecat.org/resources/dms_7538993",
     "@type": "https://odta.io/voc/PointOfInterest",
     "meta": {
+      "entityName": "mock-entity-1",
       "lastQueryTime": 1,
       "responseTime": 0,
     },
@@ -483,6 +488,7 @@ Nach einer Überlieferung soll sich ein denkwürdiger Plausch an der Wöllepump 
       "https://odta.io/voc/PointOfInterest",
     ],
     "meta": {
+      "entityName": "mock-entity-1",
       "lastQueryTime": 1,
       "responseTime": 0,
     },
@@ -872,6 +878,7 @@ Products: Raw milk, raw milk cheese, hard cheese, sliced cheese as natural varie
       "https://odta.io/voc/PointOfInterest",
     ],
     "meta": {
+      "entityName": "mock-entity-1",
       "lastQueryTime": 1,
       "responseTime": 0,
     },
@@ -1233,6 +1240,7 @@ Products: Raw milk, raw milk cheese, hard cheese, sliced cheese as natural varie
     "@id": "https://thuecat.org/resources/dms_6175521",
     "@type": "https://odta.io/voc/PointOfInterest",
     "meta": {
+      "entityName": "mock-entity-1",
       "lastQueryTime": 1,
       "responseTime": 0,
     },
@@ -1293,6 +1301,7 @@ Products: Raw milk, raw milk cheese, hard cheese, sliced cheese as natural varie
       "https://odta.io/voc/PointOfInterest",
     ],
     "meta": {
+      "entityName": "mock-entity-1",
       "lastQueryTime": 1,
       "responseTime": 0,
     },
@@ -1665,6 +1674,7 @@ Der Wingster Waldzoo ist nur wenige hundert Meter entfernt.",
     "@id": "https://thuecat.org/resources/dms_6256624",
     "@type": "https://odta.io/voc/PointOfInterest",
     "meta": {
+      "entityName": "mock-entity-1",
       "lastQueryTime": 1,
       "responseTime": 0,
     },

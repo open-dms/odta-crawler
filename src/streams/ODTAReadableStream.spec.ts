@@ -47,7 +47,11 @@ describe("ODTAReadableStream", () => {
     expect(result).toMatchObject(
       expect.arrayContaining([
         expect.objectContaining({
-          meta: { lastQueryTime: 1, responseTime: 0 },
+          meta: {
+            entityName: "mock-entity-1",
+            lastQueryTime: 1,
+            responseTime: 0,
+          },
         }),
       ])
     );
