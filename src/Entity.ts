@@ -1,9 +1,11 @@
 import { readFile, writeFile } from "fs/promises";
 import jsonld, { NodeObject } from "jsonld";
 import path from "path";
+import { Logger } from "pino";
 import { RcFileNotFoundError } from "./RcFileNotFoundError";
 import { apiKey, apiUrl } from "./config";
 import defaultEntities from "./entities.default.json";
+import { logger } from "./logger";
 
 const rcFile = path.join(process.cwd(), ".entitiesrc.json");
 
@@ -28,16 +30,22 @@ export class Entity {
       "@id": "odms:meta",
       "@type": "@id",
     },
+    entityName: "odms:entityName",
     responseTime: "odms:responseTime",
     lastQueryTime: "odms:lastQueryTime",
   };
   private isFetching = false;
+  logger: Logger;
 
   constructor(initialProps: Entity & defaultInitialProps) {
     Object.assign(this, initialProps);
     this.name = initialProps.name;
     this.ds = initialProps.ds;
     this.queue = [];
+    this.logger = logger.child({
+      self: this.constructor.name,
+      entity: this.name,
+    });
   }
 
   get untouched() {
@@ -66,7 +74,7 @@ export class Entity {
     this.queue.push(page);
     const start = Date.now();
 
-    console.log("[Entity] fetching", page);
+    this.logger.debug({ msg: "fetching", page });
 
     const response = await fetch(url, {
       headers: {
@@ -79,7 +87,17 @@ export class Entity {
     const responseTime = Date.now() - start;
 
     if (!response.ok) {
-      throw new Error(`${response.status} ${response.statusText}`);
+      throw new Error(`http ${response.status} ${response.statusText}`, {
+        cause: {
+          status: response.status,
+          statusText: response.statusText,
+          body: response.body,
+          url,
+          entity: this,
+          page,
+          responseTime,
+        },
+      });
     }
 
     const {
@@ -92,7 +110,13 @@ export class Entity {
 
     if (!metaData) {
       throw new Error(
-        `Bad Response: metaData or data not found in response text`
+        "Bad Response: metaData or data not found in response text",
+        {
+          cause: {
+            entity: this,
+            url,
+          },
+        }
       );
     }
 
@@ -122,6 +146,7 @@ export class Entity {
             {
               ...item,
               [`${this.context.odms}meta`]: {
+                [`${this.context.odms}entityName`]: this.name,
                 [`${this.context.odms}lastQueryTime`]: Date.now(),
                 [`${this.context.odms}responseTime`]: responseTime,
               },
@@ -133,10 +158,19 @@ export class Entity {
     );
   }
 
+  toJSON() {
+    const { name, head, queue } = this;
+    return {
+      name,
+      head,
+      queue,
+    };
+  }
+
   toString() {
-    return `name='${this.name}'; head=${this.head}; queue=${JSON.stringify(
-      this.queue
-    )}`;
+    return Object.entries(this.toJSON())
+      .map(([key, value]) => [key, JSON.stringify(value)].join("="))
+      .join("; ");
   }
 
   static async loadEntities(): Promise<Array<Entity>> {
@@ -158,8 +192,6 @@ export class Entity {
   }
 
   static saveEntities(entities: Array<Entity>): Promise<void> {
-    console.log("[Entity] Saving entity stats...");
-
     return writeFile(
       rcFile,
       JSON.stringify(

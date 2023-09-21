@@ -1,6 +1,7 @@
 import { NodeObject } from "jsonld";
 import { Readable, ReadableOptions } from "node:stream";
 import { Entity } from "../Entity";
+import { logger } from "../logger";
 
 export class ODTAReadableStream extends Readable {
   throttleTimeout?: NodeJS.Timeout;
@@ -38,9 +39,17 @@ export class ODTAReadableStream extends Readable {
         return;
       }
     } else if (this.shouldEnd) {
+      logger.debug({
+        msg: "ending stream, pushing null",
+        shouldEnd: this.shouldEnd,
+      });
       this.push(null);
     }
 
+    this.requestNextFetch();
+  }
+
+  async requestNextFetch() {
     if (
       this.throttleTimeout ||
       this.fetchCount >= this.maxConcurrentRequests ||
@@ -49,18 +58,29 @@ export class ODTAReadableStream extends Readable {
       return;
     }
 
-    this.throttleTimeout = setTimeout(() => {
+    logger.debug("requesting next fetch");
+
+    this.throttleTimeout = setTimeout(async () => {
+      logger.debug("saving entites");
+
       this.entities && Entity.saveEntities(this.entities);
       delete this.throttleTimeout;
+
       if (this.fetchCount < this.maxConcurrentRequests) {
-        this.fetch();
+        this.requestNextFetch();
       }
     }, this.throttleTime);
 
-    this.fetch();
+    const result = await this.fetch();
+
+    if (result.length === 0) {
+      this.requestNextFetch();
+    } else {
+      this.handleResult(result);
+    }
   }
 
-  async fetch(): Promise<void> {
+  async fetch(): Promise<Array<NodeObject>> {
     if (!this.entities) {
       this.entities = await Entity.loadEntities();
     }
@@ -69,28 +89,36 @@ export class ODTAReadableStream extends Readable {
 
     if (!entity) {
       // TODO should log notice and start over
-      console.log("no entitiy, signaling to end stream");
+      logger.debug("no entitiy, signaling to end stream");
 
       this.shouldEnd = true;
-      return;
+      return [];
     }
 
-    console.log("fetching", String(entity));
-
     this.fetchCount++;
+    logger.debug({ msg: "fetching", entity, fetchCount: this.fetchCount });
 
-    const buffer = await entity.fetch();
+    let buffer: Array<NodeObject> = [];
+    try {
+      buffer = await entity.fetch();
+    } catch (err) {
+      this.emit("error", err);
+    }
 
     this.fetchCount--;
 
-    console.log("done fetching", String(entity));
+    logger.debug({ msg: "done fetching", entity });
 
-    if (!this.buffer.length && !this.stopPushing) {
-      const continuePushing = this.push(buffer.shift());
+    return buffer;
+  }
+
+  handleResult(result: Array<NodeObject>): void {
+    if (result.length && !this.buffer.length && !this.stopPushing) {
+      const continuePushing = this.push(result.shift());
       if (!continuePushing) {
         this.stopPushing = true;
       }
     }
-    this.buffer.push(...buffer);
+    this.buffer.push(...result);
   }
 }
