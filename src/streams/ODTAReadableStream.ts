@@ -120,7 +120,7 @@ export class ODTAReadableStream extends Readable {
 
     if (!entity) {
       // TODO should log notice and start over
-      logger.debug("no entitiy, signaling to end stream");
+      logger.info("no entitiy, signaling to end stream");
 
       this.shouldEnd = true;
       return [];
