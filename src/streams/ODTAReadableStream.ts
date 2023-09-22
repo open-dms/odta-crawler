@@ -2,6 +2,7 @@ import { NodeObject } from "jsonld";
 import { Readable, ReadableOptions } from "node:stream";
 import { Entity } from "../Entity";
 import { logger } from "../logger";
+import { upperQuartile } from "../util";
 
 export enum LevelOfConcern {
   None = 0,
@@ -17,7 +18,8 @@ export class ODTAReadableStream extends Readable {
 
   private throttleTimeout?: NodeJS.Timeout;
   private levelOfConcernTimeout?: NodeJS.Timeout;
-  private _throttleTime: number = 1000 * 5;
+  private _throttleTime = 1000 * 5;
+  private maxThrottleTime = 1000 * 30;
   private _maxConcurrentRequests = 5;
   private buffer: Array<NodeObject> = [];
   private fetchCount = 0;
@@ -28,6 +30,8 @@ export class ODTAReadableStream extends Readable {
   private levelOfConcernErrorBase = 2;
   private errorCooldown = 1000 * 10;
   private entities: Array<Entity> | null = null;
+  private responseTimes: Array<number> = [];
+  private responseTimesWaterMark = 10;
 
   constructor({
     throttleTime,
@@ -52,10 +56,18 @@ export class ODTAReadableStream extends Readable {
   }
 
   get throttleTime() {
-    return (
+    const throttleTime =
       this._throttleTime *
-      Math.pow(this.levelOfConcernThrottleBase, this.levelOfConcern)
+      Math.pow(this.levelOfConcernThrottleBase, this.levelOfConcern);
+    return Math.min(
+      Math.max(throttleTime, this.responseTimeQ3 || 0),
+      this.maxThrottleTime
     );
+  }
+
+  get responseTimeQ3() {
+    const q3 = upperQuartile(this.responseTimes);
+    return q3 ? Math.floor(q3) : undefined;
   }
 
   async _read(): Promise<void> {
@@ -87,7 +99,10 @@ export class ODTAReadableStream extends Readable {
       return;
     }
 
-    logger.debug("requesting next fetch");
+    logger.debug({
+      msg: "requesting next fetch",
+      throttleTime: this.throttleTime,
+    });
 
     this.throttleTimeout = setTimeout(async () => {
       logger.debug("saving entites");
@@ -132,24 +147,31 @@ export class ODTAReadableStream extends Readable {
     logger.debug({ msg: "fetching", entity, fetchCount: this.fetchCount });
 
     let data: Array<NodeObject> = [];
+    let responseTime: number;
+
     try {
       data = await entity.fetch();
+      responseTime = Date.now() - start;
     } catch (err) {
       this.raiseConcern();
+      responseTime = Date.now() - start;
       this.emit("error", err, {
-        responseTime: Date.now() - start,
+        responseTime,
         fetchCount: this.fetchCount,
       });
     }
 
-    const responseTime = Date.now() - start;
     this.fetchCount--;
+    this.responseTimes = this.responseTimes
+      .concat(responseTime)
+      .slice(-this.responseTimesWaterMark);
 
     logger.info({
       msg: "fetched",
       entity,
-      responseTime,
       fetchCount: this.fetchCount,
+      responseTime,
+      responseTimeQ3: this.responseTimeQ3,
     });
 
     return data;
