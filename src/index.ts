@@ -1,9 +1,14 @@
+import { dbName, level, mongoCertFile, mongoUrl } from "./config";
 import { logger } from "./logger";
+import { MongoDBWritableStream } from "./streams/MongoDBWriteableStream";
 import { ODTAReadableStream } from "./streams/ODTAReadableStream";
 
-logger.info("Starting ODTA crawler");
+logger.info({ msg: "Starting ODTA crawler", logLevel: level });
 
 const odtaStream = new ODTAReadableStream();
+const dbStream = new MongoDBWritableStream({ mongoUrl, mongoCertFile, dbName });
+
+odtaStream.pipe(dbStream);
 
 const countByEntity: Record<string, number> = {};
 

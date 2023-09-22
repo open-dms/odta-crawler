@@ -6,6 +6,7 @@ import { RcFileNotFoundError } from "./RcFileNotFoundError";
 import { apiKey, apiUrl } from "./config";
 import defaultEntities from "./entities.default.json";
 import { logger } from "./logger";
+import { ODTAMetaData } from "./streams/typings";
 
 const rcFile = path.join(process.cwd(), ".entitiesrc.json");
 
