@@ -78,7 +78,7 @@ export class ODTAReadableStream extends Readable {
     this.requestNextFetch();
   }
 
-  async requestNextFetch() {
+  async requestNextFetch(immediate = true) {
     if (
       this.throttleTimeout ||
       this.fetchCount >= this.maxConcurrentRequests ||
@@ -100,12 +100,14 @@ export class ODTAReadableStream extends Readable {
       }
     }, this.throttleTime);
 
-    const result = await this.fetch();
+    if (immediate) {
+      const data = await this.fetch();
 
-    if (result.length === 0) {
-      this.requestNextFetch();
-    } else {
-      this.handleResult(result);
+      if (data.length) {
+        return this.handleResult(data);
+      }
+
+      this.requestNextFetch(false);
     }
   }
 
