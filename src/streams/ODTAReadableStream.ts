@@ -1,5 +1,6 @@
 import { NodeObject } from "jsonld";
 import { Readable, ReadableOptions } from "node:stream";
+import { Logger } from "pino";
 import { Entity } from "../Entity";
 import { logger } from "../logger";
 import { upperQuartile } from "../util";
@@ -32,6 +33,7 @@ export class ODTAReadableStream extends Readable {
   private entities: Array<Entity> | null = null;
   private responseTimes: Array<number> = [];
   private responseTimesWaterMark = 10;
+  private logger: Logger;
 
   constructor({
     throttleTime,
@@ -42,6 +44,7 @@ export class ODTAReadableStream extends Readable {
     maxConcurrentRequests?: number;
   } = {}) {
     super({ objectMode: true, ...options });
+    this.logger = logger.child({ module: this.constructor.name });
     this._throttleTime = throttleTime || this._throttleTime;
     this._maxConcurrentRequests =
       maxConcurrentRequests || this._maxConcurrentRequests;
@@ -80,7 +83,7 @@ export class ODTAReadableStream extends Readable {
         return;
       }
     } else if (this.shouldEnd) {
-      logger.debug({
+      this.logger.debug({
         msg: "ending stream, pushing null",
         shouldEnd: this.shouldEnd,
       });
@@ -99,13 +102,13 @@ export class ODTAReadableStream extends Readable {
       return;
     }
 
-    logger.debug({
+    this.logger.debug({
       msg: "requesting next fetch",
       throttleTime: this.throttleTime,
     });
 
     this.throttleTimeout = setTimeout(async () => {
-      logger.debug("saving entites");
+      this.logger.debug("saving entites");
 
       this.entities && Entity.saveEntities(this.entities);
       delete this.throttleTimeout;
@@ -135,7 +138,7 @@ export class ODTAReadableStream extends Readable {
 
     if (!entity) {
       // TODO should log notice and start over
-      logger.info("no entitiy, signaling to end stream");
+      this.logger.info("no entitiy, signaling to end stream");
 
       this.shouldEnd = true;
       return [];
@@ -144,7 +147,7 @@ export class ODTAReadableStream extends Readable {
     this.fetchCount++;
     const start = Date.now();
 
-    logger.debug({ msg: "fetching", entity, fetchCount: this.fetchCount });
+    this.logger.debug({ msg: "fetching", entity, fetchCount: this.fetchCount });
 
     let data: Array<NodeObject> = [];
     let responseTime: number;
@@ -166,7 +169,7 @@ export class ODTAReadableStream extends Readable {
       .concat(responseTime)
       .slice(-this.responseTimesWaterMark);
 
-    logger.info({
+    this.logger.info({
       msg: "fetched",
       entity,
       fetchCount: this.fetchCount,
@@ -203,7 +206,7 @@ export class ODTAReadableStream extends Readable {
       this.levelOfConcern++;
       this.errorCount = 0;
 
-      logger.warn({
+      this.logger.warn({
         msg: `raised level of concern to ${
           ["None", "Low", "Medium", "High"][this.levelOfConcern]
         }`,
@@ -222,7 +225,7 @@ export class ODTAReadableStream extends Readable {
     this.levelOfConcernTimeout = setTimeout(() => {
       this.levelOfConcern--;
 
-      logger.warn({
+      this.logger.warn({
         msg: `lowered level of concern to ${
           ["None", "Low", "Medium", "High"][this.levelOfConcern]
         }`,

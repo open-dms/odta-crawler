@@ -40,12 +40,12 @@ export class Entity {
   constructor(initialProps: Entity & defaultInitialProps) {
     Object.assign(this, initialProps);
     this.name = initialProps.name;
-    this.ds = initialProps.ds;
-    this.queue = [];
     this.logger = logger.child({
-      self: this.constructor.name,
+      module: this.constructor.name,
       entity: this.name,
     });
+    this.ds = initialProps.ds;
+    this.queue = [];
   }
 
   get untouched() {
