@@ -8,7 +8,6 @@ exports[`ODTAReadableStream should fetch 1`] = `
     "meta": {
       "entityName": "mock-entity-1",
       "lastQueryTime": 1,
-      "responseTime": 0,
     },
     "schema:additionalType": [
       {
@@ -67,7 +66,6 @@ exports[`ODTAReadableStream should fetch 1`] = `
     "meta": {
       "entityName": "mock-entity-1",
       "lastQueryTime": 1,
-      "responseTime": 0,
     },
     "schema:address": {
       "@id": "https://data.bayerncloud.digital/api/v4/universal/25bdb10b-f69f-4e10-8476-80c4b74790e5",
@@ -178,7 +176,6 @@ exports[`ODTAReadableStream should fetch 1`] = `
     "meta": {
       "entityName": "mock-entity-1",
       "lastQueryTime": 1,
-      "responseTime": 0,
     },
     "schema:address": {
       "@id": "https://data.bayerncloud.digital/api/v4/universal/eabeaa61-e09a-4c30-aa5f-3bb957ff311e",
@@ -289,7 +286,6 @@ exports[`ODTAReadableStream should fetch 1`] = `
     "meta": {
       "entityName": "mock-entity-1",
       "lastQueryTime": 1,
-      "responseTime": 0,
     },
     "schema:address": {
       "@id": "http://onlim.com/entity/adb10d9b-224a-4ea7-9289-d14c504bcd51",
@@ -432,7 +428,6 @@ Nach einer Überlieferung soll sich ein denkwürdiger Plausch an der Wöllepump 
     "meta": {
       "entityName": "mock-entity-1",
       "lastQueryTime": 1,
-      "responseTime": 0,
     },
     "schema:additionalType": [
       {
@@ -490,7 +485,6 @@ Nach einer Überlieferung soll sich ein denkwürdiger Plausch an der Wöllepump 
     "meta": {
       "entityName": "mock-entity-1",
       "lastQueryTime": 1,
-      "responseTime": 0,
     },
     "schema:address": {
       "@id": "http://onlim.com/entity/2e5f021c-a40f-4431-a25a-5b30164134fc",
@@ -880,7 +874,6 @@ Products: Raw milk, raw milk cheese, hard cheese, sliced cheese as natural varie
     "meta": {
       "entityName": "mock-entity-1",
       "lastQueryTime": 1,
-      "responseTime": 0,
     },
     "schema:address": {
       "@id": "http://onlim.com/entity/00b9796b-ba0b-4199-9b2a-e65dd5a11fa9",
@@ -1242,7 +1235,6 @@ Products: Raw milk, raw milk cheese, hard cheese, sliced cheese as natural varie
     "meta": {
       "entityName": "mock-entity-1",
       "lastQueryTime": 1,
-      "responseTime": 0,
     },
     "schema:additionalType": [
       {
@@ -1303,7 +1295,6 @@ Products: Raw milk, raw milk cheese, hard cheese, sliced cheese as natural varie
     "meta": {
       "entityName": "mock-entity-1",
       "lastQueryTime": 1,
-      "responseTime": 0,
     },
     "schema:address": {
       "@id": "http://onlim.com/entity/a28e2ac9-449a-4b71-a8c6-7f8f91df6c84",
@@ -1676,7 +1667,6 @@ Der Wingster Waldzoo ist nur wenige hundert Meter entfernt.",
     "meta": {
       "entityName": "mock-entity-1",
       "lastQueryTime": 1,
-      "responseTime": 0,
     },
     "schema:additionalType": [
       {

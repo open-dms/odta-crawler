@@ -50,7 +50,6 @@ describe("ODTAReadableStream", () => {
           meta: {
             entityName: "mock-entity-1",
             lastQueryTime: 1,
-            responseTime: 0,
           },
         }),
       ])
