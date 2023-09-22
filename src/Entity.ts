@@ -31,7 +31,6 @@ export class Entity {
       "@type": "@id",
     },
     entityName: "odms:entityName",
-    responseTime: "odms:responseTime",
     lastQueryTime: "odms:lastQueryTime",
   };
   private isFetching = false;
@@ -58,6 +57,10 @@ export class Entity {
     );
   }
 
+  get totalPages() {
+    return Math.ceil((this.total || 0) / (this.pageSize || 10));
+  }
+
   async fetch(): Promise<Array<NodeObject>> {
     this.isFetching = true;
 
@@ -72,7 +75,6 @@ export class Entity {
       queueHead === undefined ? 0 : queueHead + 1
     );
     this.queue.push(page);
-    const start = Date.now();
 
     this.logger.debug({ msg: "fetching", page });
 
@@ -84,8 +86,6 @@ export class Entity {
       },
     });
 
-    const responseTime = Date.now() - start;
-
     if (!response.ok) {
       throw new Error(`http ${response.status} ${response.statusText}`, {
         cause: {
@@ -95,7 +95,6 @@ export class Entity {
           url,
           entity: this,
           page,
-          responseTime,
         },
       });
     }
@@ -125,7 +124,12 @@ export class Entity {
     }
 
     if (!Array.isArray(data)) {
-      throw new Error(`Data did have the wrong type (${typeof data})`);
+      throw new Error(`Data did have the wrong type (${typeof data})`, {
+        cause: {
+          entity: this,
+          url,
+        },
+      });
     }
 
     this.head =
@@ -148,7 +152,6 @@ export class Entity {
               [`${this.context.odms}meta`]: {
                 [`${this.context.odms}entityName`]: this.name,
                 [`${this.context.odms}lastQueryTime`]: Date.now(),
-                [`${this.context.odms}responseTime`]: responseTime,
               },
             },
             this.context
@@ -159,10 +162,12 @@ export class Entity {
   }
 
   toJSON() {
-    const { name, head, queue } = this;
+    const { name, head, queue, total, totalPages } = this;
     return {
       name,
       head,
+      total,
+      totalPages,
       queue,
     };
   }
@@ -219,15 +224,12 @@ export class Entity {
     for (const entity of entities.filter(({ untouched }) => !untouched)) {
       const head = entity.queue.sort().slice(-1).shift() || entity.head || 0;
       const nextPage = head + 1;
-      const totalPages = Math.ceil(
-        (entity.total || 0) / (entity.pageSize || 10)
-      );
 
-      if (totalPages === 0 || nextPage >= totalPages) {
+      if (entity.totalPages === 0 || nextPage >= entity.totalPages) {
         continue;
       }
 
-      const ratio = head / totalPages;
+      const ratio = head / entity.totalPages;
 
       if (ratio < minRatio) {
         minRatio = ratio;

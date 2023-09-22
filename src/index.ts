@@ -14,10 +14,12 @@ odtaStream.on("data", (item) => {
   }
 });
 
-odtaStream.on("error", (err) => {
-  logger.error(err);
-  process.exit(1);
-});
+odtaStream.on(
+  "error",
+  (err: Error, payload: { responseTime: number; fetchCount: number }) => {
+    logger.error({ err, ...payload });
+  }
+);
 
 function countAll() {
   return Object.values(countByEntity).reduce((sum, count) => sum + count, 0);

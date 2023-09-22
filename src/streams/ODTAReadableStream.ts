@@ -3,16 +3,30 @@ import { Readable, ReadableOptions } from "node:stream";
 import { Entity } from "../Entity";
 import { logger } from "../logger";
 
-export class ODTAReadableStream extends Readable {
-  throttleTimeout?: NodeJS.Timeout;
-  private throttleTime: number = 1000 * 5;
-  private maxConcurrentRequests = 5;
+export enum LevelOfConcern {
+  None = 0,
+  Low = 1,
+  Medium = 2,
+  High = 3,
+}
 
+export class ODTAReadableStream extends Readable {
+  levelOfConcern = LevelOfConcern.None;
+  errorCount = 0;
+  errorThreshold = 3;
+
+  private throttleTimeout?: NodeJS.Timeout;
+  private levelOfConcernTimeout?: NodeJS.Timeout;
+  private _throttleTime: number = 1000 * 5;
+  private _maxConcurrentRequests = 5;
   private buffer: Array<NodeObject> = [];
   private fetchCount = 0;
   private stopPushing = false;
   private shouldEnd = false;
-
+  private levelOfConcernBase = 4;
+  private levelOfConcernThrottleBase = 2;
+  private levelOfConcernErrorBase = 2;
+  private errorCooldown = 1000 * 10;
   private entities: Array<Entity> | null = null;
 
   constructor({
@@ -24,9 +38,24 @@ export class ODTAReadableStream extends Readable {
     maxConcurrentRequests?: number;
   } = {}) {
     super({ objectMode: true, ...options });
-    this.throttleTime = throttleTime || this.throttleTime;
-    this.maxConcurrentRequests =
-      maxConcurrentRequests || this.maxConcurrentRequests;
+    this._throttleTime = throttleTime || this._throttleTime;
+    this._maxConcurrentRequests =
+      maxConcurrentRequests || this._maxConcurrentRequests;
+  }
+
+  get maxConcurrentRequests() {
+    return this.levelOfConcern === LevelOfConcern.None
+      ? this._maxConcurrentRequests
+      : this.levelOfConcern < LevelOfConcern.High
+      ? Math.floor(this._maxConcurrentRequests / this.levelOfConcern)
+      : 1;
+  }
+
+  get throttleTime() {
+    return (
+      this._throttleTime *
+      Math.pow(this.levelOfConcernThrottleBase, this.levelOfConcern)
+    );
   }
 
   async _read(): Promise<void> {
@@ -96,20 +125,32 @@ export class ODTAReadableStream extends Readable {
     }
 
     this.fetchCount++;
+    const start = Date.now();
+
     logger.debug({ msg: "fetching", entity, fetchCount: this.fetchCount });
 
-    let buffer: Array<NodeObject> = [];
+    let data: Array<NodeObject> = [];
     try {
-      buffer = await entity.fetch();
+      data = await entity.fetch();
     } catch (err) {
-      this.emit("error", err);
+      this.raiseConcern();
+      this.emit("error", err, {
+        responseTime: Date.now() - start,
+        fetchCount: this.fetchCount,
+      });
     }
 
+    const responseTime = Date.now() - start;
     this.fetchCount--;
 
-    logger.debug({ msg: "done fetching", entity });
+    logger.info({
+      msg: "fetched",
+      entity,
+      responseTime,
+      fetchCount: this.fetchCount,
+    });
 
-    return buffer;
+    return data;
   }
 
   handleResult(result: Array<NodeObject>): void {
@@ -120,5 +161,49 @@ export class ODTAReadableStream extends Readable {
       }
     }
     this.buffer.push(...result);
+  }
+
+  raiseConcern() {
+    if (this.levelOfConcernTimeout) {
+      clearTimeout(this.levelOfConcernTimeout);
+    }
+
+    this.errorCount++;
+
+    if (
+      this.errorCount >=
+        this.errorThreshold *
+          Math.pow(this.levelOfConcernErrorBase, this.levelOfConcern) &&
+      this.levelOfConcern < LevelOfConcern.High
+    ) {
+      this.levelOfConcern++;
+      this.errorCount = 0;
+
+      logger.warn({
+        msg: `raised level of concern to ${
+          ["None", "Low", "Medium", "High"][this.levelOfConcern]
+        }`,
+        levelOfConcern: this.levelOfConcern,
+      });
+    }
+
+    const cooldownTime =
+      this.errorCooldown *
+      Math.pow(this.levelOfConcernBase, this.levelOfConcern);
+
+    if (this.levelOfConcern === LevelOfConcern.None) {
+      return;
+    }
+
+    this.levelOfConcernTimeout = setTimeout(() => {
+      this.levelOfConcern--;
+
+      logger.warn({
+        msg: `lowered level of concern to ${
+          ["None", "Low", "Medium", "High"][this.levelOfConcern]
+        }`,
+        levelOfConcern: this.levelOfConcern,
+      });
+    }, cooldownTime);
   }
 }

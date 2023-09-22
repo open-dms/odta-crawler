@@ -1,6 +1,6 @@
 import { readFile } from "fs/promises";
 import { NodeObject } from "jsonld";
-import { ODTAReadableStream } from "./ODTAReadableStream";
+import { LevelOfConcern, ODTAReadableStream } from "./ODTAReadableStream";
 import mockPoi from "./__mocks__/fetchPoi.json";
 
 jest.useFakeTimers();
@@ -58,6 +58,56 @@ describe("ODTAReadableStream", () => {
     expect(result).toMatchSnapshot();
   });
 
-  it.todo("should handle error response");
-  it.todo("should handle timeout");
+  it("should increase the level of concern based on errorCount", () => {
+    const stream = new ODTAReadableStream();
+
+    expect(stream.levelOfConcern).toBe(0);
+    expect(stream.errorCount).toBe(0);
+
+    for (let i = 0; i < stream.errorThreshold; i++) {
+      stream.raiseConcern();
+    }
+    expect(stream.errorCount).toBe(0); // has been reset
+    expect(stream.levelOfConcern).toBe(LevelOfConcern.Low);
+
+    for (let i = 0; i < stream.errorThreshold * 2; i++) {
+      stream.raiseConcern();
+    }
+    expect(stream.errorCount).toBe(0);
+    expect(stream.levelOfConcern).toBe(LevelOfConcern.Medium);
+
+    for (let i = 0; i < stream.errorThreshold * 4; i++) {
+      stream.raiseConcern();
+    }
+    expect(stream.errorCount).toBe(0);
+    expect(stream.levelOfConcern).toBe(LevelOfConcern.High);
+
+    for (let i = 0; i < stream.errorThreshold * 4; i++) {
+      stream.raiseConcern();
+    }
+    expect(stream.levelOfConcern).toBe(LevelOfConcern.High);
+  });
+
+  it("should decrease the level of concern", () => {
+    const stream = new ODTAReadableStream();
+
+    expect(stream.levelOfConcern).toBe(0);
+    expect(stream.errorCount).toBe(0);
+
+    for (let i = 0; i < stream.errorThreshold * 2 * 4; i++) {
+      stream.raiseConcern();
+    }
+    expect(stream.levelOfConcern).toBe(LevelOfConcern.High);
+
+    jest.runAllTimers();
+    expect(stream.levelOfConcern).toBe(LevelOfConcern.Medium);
+
+    stream.raiseConcern();
+    jest.runAllTimers();
+    expect(stream.levelOfConcern).toBe(LevelOfConcern.Low);
+
+    stream.raiseConcern();
+    jest.runAllTimers();
+    expect(stream.levelOfConcern).toBe(LevelOfConcern.None);
+  });
 });
