@@ -1,11 +1,14 @@
 import { Db, MongoClient, ServerApiVersion } from "mongodb";
 import { Writable, WritableOptions } from "node:stream";
+import { Logger } from "pino";
+import { logger } from "../logger";
 import { ODTAItem } from "./typings";
 
 export class MongoDBWritableStream extends Writable {
   private dbName: string;
   private client: MongoClient;
   private db?: Db;
+  private logger: Logger;
 
   constructor(
     options: WritableOptions & {
@@ -15,12 +18,21 @@ export class MongoDBWritableStream extends Writable {
     }
   ) {
     super({ objectMode: true });
+    this.logger = logger.child({ module: this.constructor.name });
     this.dbName = options.dbName;
     const { mongoUrl, mongoCertFile } = options;
     this.client = new MongoClient(mongoUrl, {
       tls: true,
       tlsCertificateKeyFile: mongoCertFile,
       serverApi: ServerApiVersion.v1,
+    });
+
+    this.logger.debug("connecting database...");
+
+    this.client.connect().then(() => {
+      this.logger.debug("connection established");
+      this.db = this.client.db(this.dbName);
+      this.emit("connect");
     });
   }
 
@@ -31,8 +43,7 @@ export class MongoDBWritableStream extends Writable {
   ): Promise<void> {
     try {
       if (!this.db) {
-        await this.client.connect();
-        this.db = this.client.db(this.dbName);
+        throw new Error("Database not connected");
       }
 
       const collection = this.db.collection(item.meta.entityName);
