@@ -1,10 +1,24 @@
 import pino from "pino";
-import { level } from "../config";
+import { axiomDataset, axiomToken, level } from "../config";
 import { errorSerializer } from "./errorSerializer";
 
-export const logger = pino({
-  level,
-  serializers: {
-    err: errorSerializer,
+const transport =
+  axiomDataset && axiomToken
+    ? pino.transport({
+        target: "@axiomhq/pino",
+        options: {
+          dataset: axiomDataset,
+          token: axiomToken,
+        },
+      })
+    : undefined;
+
+export const logger = pino(
+  {
+    level,
+    serializers: {
+      err: errorSerializer,
+    },
   },
-});
+  transport
+);
