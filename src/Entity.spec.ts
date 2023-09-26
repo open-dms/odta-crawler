@@ -66,4 +66,25 @@ describe("Entities", () => {
     const entities = await Entity.loadEntities();
     expect(Entity.getNextEntity(entities)).toMatchObject(mockEntities[0]);
   });
+
+  it("should stop getting entities at the end", async () => {
+    const mockEntities: Array<Partial<Entity>> = [
+      {
+        name: "mock-entity-1",
+        head: 2,
+        sortSeed: "random",
+        pageSize: 10,
+        total: 30,
+      },
+      {
+        name: "mock-entity-no-data",
+      },
+    ];
+    (<jest.Mock>readFile).mockResolvedValue(JSON.stringify(mockEntities));
+    const entities = await Entity.loadEntities();
+    expect(Entity.getNextEntity(entities)).toMatchObject(mockEntities[1]);
+    entities[1].head = 0;
+    entities[1].total = 0;
+    expect(Entity.getNextEntity(entities)).toBeNull();
+  });
 });

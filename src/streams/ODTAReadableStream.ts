@@ -4,6 +4,7 @@ import { Logger } from "pino";
 import { Entity } from "../Entity";
 import { logger } from "../logger";
 import { upperQuartile } from "../util";
+import { EntityEndError } from "../EntityEndError";
 
 export enum LevelOfConcern {
   None = 0,
@@ -82,12 +83,6 @@ export class ODTAReadableStream extends Readable {
         this.stopPushing = true;
         return;
       }
-    } else if (this.shouldEnd) {
-      this.logger.debug({
-        msg: "ending stream, pushing null",
-        shouldEnd: this.shouldEnd,
-      });
-      this.push(null);
     }
 
     this.requestNextFetch();
@@ -105,13 +100,25 @@ export class ODTAReadableStream extends Readable {
     this.logger.debug({
       msg: "requesting next fetch",
       throttleTime: this.throttleTime,
+      fetchCount: this.fetchCount,
     });
 
-    this.throttleTimeout = setTimeout(async () => {
+    this.throttleTimeout = setTimeout(() => {
       this.logger.debug("saving entites");
 
       this.entities && Entity.saveEntities(this.entities);
       delete this.throttleTimeout;
+
+      logger.debug({ shouldEnd: this.shouldEnd, fetchCount: this.fetchCount });
+
+      if (this.shouldEnd && this.fetchCount === 0) {
+        this.logger.warn({
+          msg: "ending stream, pushing null",
+          shouldEnd: this.shouldEnd,
+        });
+        this.push(null);
+        return;
+      }
 
       if (this.fetchCount < this.maxConcurrentRequests) {
         this.requestNextFetch();
@@ -138,8 +145,8 @@ export class ODTAReadableStream extends Readable {
 
     if (!entity) {
       // TODO should log notice and start over
-      this.logger.info("no entitiy, signaling to end stream");
-
+      // this.logger.info("no entitiy, signaling to end stream");
+      logger.warn("no entitiy, signaling to end stream");
       this.shouldEnd = true;
       return [];
     }
@@ -156,12 +163,17 @@ export class ODTAReadableStream extends Readable {
       data = await entity.fetch();
       responseTime = Date.now() - start;
     } catch (err) {
-      this.raiseConcern();
       responseTime = Date.now() - start;
-      this.emit("error", err, {
-        responseTime,
-        fetchCount: this.fetchCount,
-      });
+      if (err instanceof EntityEndError) {
+        logger.info(err);
+        Entity.saveEntities(this.entities);
+      } else {
+        this.raiseConcern();
+        this.emit("error", err, {
+          responseTime,
+          fetchCount: this.fetchCount,
+        });
+      }
     }
 
     this.fetchCount--;
