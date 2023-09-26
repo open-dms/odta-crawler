@@ -2,8 +2,9 @@ import { readFile, writeFile } from "fs/promises";
 import jsonld, { NodeObject } from "jsonld";
 import path from "path";
 import { Logger } from "pino";
+import { EntityEndError } from "./EntityEndError";
 import { RcFileNotFoundError } from "./RcFileNotFoundError";
-import { apiKey, apiUrl } from "./config";
+import { apiKey, apiUrl, defaultPageSize } from "./config";
 import defaultEntities from "./entities.default.json";
 import { logger } from "./logger";
 import { ODTAMetaData } from "./streams/typings";
@@ -20,7 +21,7 @@ export class Entity {
   public pageSize?: number;
   public total?: number;
 
-  private queue: Array<number>;
+  private queue: Set<number>;
   private context = {
     odms: "https://open-dms.org/",
     schema: "https://schema.org/",
@@ -45,7 +46,7 @@ export class Entity {
       entity: this.name,
     });
     this.ds = initialProps.ds;
-    this.queue = [];
+    this.queue = new Set();
   }
 
   get untouched() {
@@ -59,7 +60,7 @@ export class Entity {
   }
 
   get totalPages() {
-    return Math.ceil((this.total || 0) / (this.pageSize || 10));
+    return Math.ceil((this.total || 0) / (this.pageSize || defaultPageSize));
   }
 
   async fetch(): Promise<Array<NodeObject>> {
@@ -69,13 +70,18 @@ export class Entity {
     url.searchParams.append("filterDs", this.ds);
     this.sortSeed && url.searchParams.append("sortSeed", this.sortSeed);
 
-    const pageSize = this.pageSize || 10;
-    const queueHead = this.queue.sort().slice(-1).shift();
+    const pageSize = this.pageSize || defaultPageSize;
+    const queueHead = [...this.queue].sort().slice(-1).shift();
     const page = Math.max(
       this.head === undefined ? 0 : this.head + 1,
       queueHead === undefined ? 0 : queueHead + 1
     );
-    this.queue.push(page);
+
+    if (page >= this.totalPages) {
+      throw new EntityEndError(this);
+    }
+
+    this.queue.add(page);
 
     this.logger.debug({ msg: "fetching", page });
 
@@ -137,7 +143,7 @@ export class Entity {
       this.head === undefined
         ? metaData["current-page"]
         : Math.max(this.head, metaData["current-page"]);
-    this.queue = this.queue.filter((item) => item !== metaData["current-page"]);
+    this.queue.delete(metaData["current-page"]);
     this.pageSize = metaData["page-size"];
     this.sortSeed = metaData.sortSeed;
     this.total = metaData.total;
@@ -223,7 +229,8 @@ export class Entity {
     let selectedEntity: Entity | null = null;
 
     for (const entity of entities.filter(({ untouched }) => !untouched)) {
-      const head = entity.queue.sort().slice(-1).shift() || entity.head || 0;
+      const head =
+        [...entity.queue].sort().slice(-1).shift() || entity.head || 0;
       const nextPage = head + 1;
 
       if (entity.totalPages === 0 || nextPage >= entity.totalPages) {
