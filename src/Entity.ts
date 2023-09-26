@@ -60,7 +60,9 @@ export class Entity {
   }
 
   get totalPages() {
-    return Math.ceil((this.total || 0) / (this.pageSize || defaultPageSize));
+    return this.total === undefined
+      ? undefined
+      : Math.ceil(this.total / (this.pageSize || defaultPageSize));
   }
 
   async fetch(): Promise<Array<NodeObject>> {
@@ -77,7 +79,7 @@ export class Entity {
       queueHead === undefined ? 0 : queueHead + 1
     );
 
-    if (page >= this.totalPages) {
+    if (this.totalPages !== undefined && page >= this.totalPages) {
       throw new EntityEndError(this);
     }
 
@@ -229,15 +231,20 @@ export class Entity {
     let selectedEntity: Entity | null = null;
 
     for (const entity of entities.filter(({ untouched }) => !untouched)) {
-      const head =
-        [...entity.queue].sort().slice(-1).shift() || entity.head || 0;
-      const nextPage = head + 1;
+      const currentHead =
+        [...entity.queue].sort().slice(-1).shift() || entity.head;
+      const nextPage = currentHead === undefined ? 0 : currentHead + 1;
 
-      if (entity.totalPages === 0 || nextPage >= entity.totalPages) {
+      if (
+        entity.totalPages === 0 ||
+        (entity.totalPages !== undefined && nextPage >= entity.totalPages)
+      ) {
         continue;
       }
 
-      const ratio = head / entity.totalPages;
+      const ratio =
+        currentHead ||
+        0 / (entity.totalPages === undefined ? Infinity : entity.totalPages);
 
       if (ratio < minRatio) {
         minRatio = ratio;
