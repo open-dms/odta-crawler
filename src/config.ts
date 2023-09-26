@@ -20,4 +20,4 @@ export const mongoCertFile = MONGO_CERT_FILE || "";
 export const dbName = DB_NAME || "";
 export const axiomDataset = AXIOM_DATASET || "";
 export const axiomToken = AXIOM_TOKEN || "";
-export const defaultPageSize = DEFAULT_PAGE_SIZE || 10;
+export const defaultPageSize = parseInt(DEFAULT_PAGE_SIZE || "10");
