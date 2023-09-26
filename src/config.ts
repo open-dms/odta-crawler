@@ -9,6 +9,7 @@ const {
   DB_NAME,
   AXIOM_DATASET,
   AXIOM_TOKEN,
+  DEFAULT_PAGE_SIZE,
 } = process.env;
 
 export const apiUrl = API_URL || "";
